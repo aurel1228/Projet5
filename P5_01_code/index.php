@@ -1,6 +1,6 @@
 <?php 
     // Url de l'API
-    $url = "http://api.openweathermap.org/data/2.5/weather?q=Strasbourg&lang=fr&units=metric&appid=113b7bfec6019d8a75dfcb6c14880a50";
+    $url = "http://api.openweathermap.org/data/2.5/weather?q=Strasbourg&lang=fr&units=mytoken";
 
     // On get les resultat
     $raw = file_get_contents($url);
