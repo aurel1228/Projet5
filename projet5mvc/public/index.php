@@ -4,7 +4,7 @@ if (basename($_SERVER['PHP_SELF']) == basename(__FILE__)) {
     die();
 }
 
-class Page
+class Router
 {
     protected static bool $Return_404 = true;
     protected static function Return_404(): void
@@ -19,9 +19,7 @@ class Page
         }
         return $file;
     }
-}
-class Router extends Page
-{
+
     public static function Run(): void
     {
         $requested_file = self::File($_SERVER["REQUEST_URI"]);
@@ -42,3 +40,5 @@ class Routes
         "" => "./view/accueil.php",
     );
 }
+
+$Route->run();
