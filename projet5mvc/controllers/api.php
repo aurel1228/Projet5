@@ -1,5 +1,4 @@
 <?php 
-    require_once "./public/index.php";
     // Url de l'API
     $url = "http://api.openweathermap.org/data/2.5/weather?q=Paris&lang=fr&units=metric&appid=mykey";
 
