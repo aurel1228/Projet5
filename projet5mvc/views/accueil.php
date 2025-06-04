@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="fr">>
+<html lang="fr">
 <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <!-- Boostrap -->
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
             <!-- Style -->
-            <link rel="stylesheet" href="./pulic/style/style.css">
+            <link rel="stylesheet" href="./style/style.css">
         <title>projet 5</title>
 </head>
 <body>

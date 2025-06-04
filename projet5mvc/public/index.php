@@ -1,7 +1,7 @@
 <?php
 session_start();
 $request = $_SERVER['REQUEST_URI'];
-$viewDir = '/views/';
+$viewDir = '/controllers/';
 
 switch ($request) {
     case '':
@@ -15,6 +15,6 @@ switch ($request) {
 
     default:
         http_response_code(404);
-        require __DIR__ . $viewDir . '404.php';
+        require __DIR__ . $viewDir . 'error';
 }
 ?>
