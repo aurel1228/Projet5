@@ -10,20 +10,27 @@
       <title>projet 5</title>
    </head>
    <body>
-      <form action="login.php" method="post">
-         <h2>CONNEXION</h2>
-         <?php if (isset($_GET['error'])) { ?>
-         <p class="error"><?php echo $_GET['error']; ?></p
-            <?php } ?>
-            <label>Nom d'utilisateur</label>
-            <input type="text" name="uname" placeholder="User Name"><br>
-            <label>Mot de passe</label>
-            <input type="password" name="password" placeholder="Password"><br>
-            <button type="submit">Connexion</button>
+      <div class="login">
+      <h1>Connexion</h1>
+      <form action="/page-traitement-donnees" method="post">
+      <div>
+      <label for="nom">login</label>
+      <input type="text" id="nom" name="nom" placeholder="test" required>
+      </div>
+      <div>
+      <label for="email">mot de passe</label>
+      <input type="email" id="email" name="email" placeholder="test" required>
+      </div>
+      <div>
+      <label for="sujet">Quel est le sujet de votre message ?</label>
+      </div>
+      <div>
+      <div>
+      <button type="submit">connexion</button>
+      </div>
       </form>
-      <div class="container text-center py-5">
-         <h1>Météo du jour à <strong><?php echo $name; ?></strong></h1>
-         <div class="row justify-content-center align-items-center">
+      </div>
+
             <?php 
                switch($weather)
                {
