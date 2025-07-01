@@ -1,20 +1,19 @@
 <?php
 session_start();
 $request = $_SERVER['REQUEST_URI'];
-$viewDir = '/controllers/';
-
+$controllerDir = __DIR__.'/../controllers/';
 switch ($request) {
     case '':
     case '/':
-        require __DIR__ . $viewDir . 'accueil.php';
+        require $controllerDir . 'accueil.php';
         break;
 
     case '/views/admin':
-        require __DIR__ . $viewDir . 'admin.php';
+        require $controllerDir . 'admin.php';
         break;
 
     default:
         http_response_code(404);
-        require __DIR__ . $viewDir . 'error';
+        require $controllerDir . 'error.php';
 }
 ?>
