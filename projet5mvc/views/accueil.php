@@ -15,11 +15,11 @@
          <form action="/page-traitement-donnees" method="post">
             <div>
                <label for="nom">login</label>
-               <input type="login" id="login" name="login" placeholder="login" required>
+               <input type="text id="login" name="login" placeholder="login" required>
             </div>
             <div>
                <label for="mdp">mot de passe</label>
-               <input type="mdp" id="mdp" name="mdp" placeholder="mot de passe" required>
+               <input type="password" id="mdp" name="mdp" placeholder="mot de passe" required>
             </div>
             <div>
                <button type="submit">connexion</button>
