@@ -15,7 +15,7 @@
          <form action="/page-traitement-donnees" method="post">
             <div>
                <label for="nom">login</label>
-               <input type="text id="login" name="login" placeholder="login" required>
+               <input type="text" id="login" name="login" placeholder="login" required>
             </div>
             <div>
                <label for="mdp">mot de passe</label>
