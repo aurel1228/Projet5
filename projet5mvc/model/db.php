@@ -13,10 +13,5 @@
     echo 'connexion echoué:'.$exception->getMessage();
     $conn = null;
    }
-   
-   //if (!$conn) {
-   //  echo "connexion échoué";
-   //}
-   //echo 'Connexion réussie';
-   
-   ?>
+    
+?>
