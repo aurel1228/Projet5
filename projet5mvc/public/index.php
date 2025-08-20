@@ -9,8 +9,8 @@
            require $controllerDir . 'accueil.php';
            break;
    
-       case '/views/admin':
-           require $controllerDir . 'admin.php';
+       case '/admin':
+           require $controllerDir . '/admin/admin.php';
            break;
    
        default:

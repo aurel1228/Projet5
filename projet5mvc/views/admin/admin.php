@@ -16,11 +16,16 @@
         </tr>
     </thead>
     <tbody>
+        <?php while (($user=$reponse->fetch())!==false){?>   
         <tr>
-            <td>aurelien</td>
-            <td>admin</td>
-            <td><a href=""></td>
+            <td><?= $user["pseudo"] ?></td>
+            <td><?= $user["role"] ?></td>
+            <td><a href="/admin/modifier.php?id=<?= $user["id"] ?>">modifier</a></td>
         </tr>
+        <?php
+        }   
+
+        ?>
     </tbody>
 </table>  
    </body>
