@@ -16,7 +16,7 @@
         </tr>
     </thead>
     <tbody>
-        <?php while (($user=$reponse->fetch())!==false){?>   
+        <?php foreach(User::getAll()as $user) {?>   
         <tr>
             <td><?= $user["pseudo"] ?></td>
             <td><?= $user["role"] ?></td>

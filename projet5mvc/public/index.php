@@ -1,7 +1,7 @@
 <?php
    session_start();
    $request = $_SERVER['REQUEST_URI'];
-   require __DIR__."/../model/db.php";  
+   require __DIR__."/../model/DB.php";  
    $controllerDir = __DIR__.'/../controllers/';
    switch ($request) {
        case '':
