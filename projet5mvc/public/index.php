@@ -1,17 +1,21 @@
 <?php
    session_start();
-   $request = $_SERVER['REQUEST_URI'];
+   $request = $_GET['action'];
    require __DIR__."/../model/DB.php";  
    $controllerDir = __DIR__.'/../controllers/';
+   var_dump($request);
    switch ($request) {
        case '':
-       case '/':
            require $controllerDir . 'accueil.php';
            break;
    
-       case '/admin':
+       case 'admin':
            require $controllerDir . '/admin/admin.php';
            break;
+
+       case 'admin/modifier':
+           require $controllerDir . '/admin/modifier.php';
+           break;    
    
        default:
            http_response_code(404);
