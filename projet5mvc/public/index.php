@@ -3,7 +3,6 @@
    $request = $_GET['action'];
    require __DIR__."/../model/DB.php";  
    $controllerDir = __DIR__.'/../controllers/';
-   var_dump($request);
    switch ($request) {
        case '':
            require $controllerDir . 'accueil.php';

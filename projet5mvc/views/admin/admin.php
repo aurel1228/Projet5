@@ -16,11 +16,11 @@
         </tr>
     </thead>
     <tbody>
-        <?php foreach(User::getAll()as $user) {?>   
+        <?php foreach(User::getAll()as $user){?>   
         <tr>
             <td><?= $user["pseudo"] ?></td>
             <td><?= $user["role"] ?></td>
-            <td><a href="/admin/modifier.php?id=<?= $user["id"] ?>">modifier</a></td>
+            <td><a href="/admin/modifier?id=<?= $user["id"] ?>">modifier</a></td>
         </tr>
         <?php
         }   
