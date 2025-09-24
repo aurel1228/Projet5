@@ -12,24 +12,25 @@
 
   <div class="login">
          <h2>modification</h2>
-         <form action="/page-traitement-donnees" method="post">
+         <form method="post">
+            <input type="hidden" name="id" value="<?php echo($user['id'])?>">
             <div>
-               <label for="nom">Nom utilisateur : <?php echo($user['pseudo'])?></label>
-               <input type="text" id="pseudo" name="pseudo" placeholder="<?php echo($user['pseudo'])?>" required>
+               <label for="pseudo">Nom utilisateur : <?php echo($user['pseudo'])?></label>
+               <input type="text" id="pseudo" name="pseudo" value="<?php echo($user['pseudo'])?>" required>
             </div>
             <div>
-               <label for="mdp">rôle : <?php echo($user['role'])?></label>
-               <input type="text" id="role" name="role" placeholder="<?php echo($user['role'])?>" required>
-            </div>
-            <div>
-                <div>
-               <label for="nom">mot de passe: <?php echo($user['password'])?></label>
-               <input type="password" id="password" name="password" placeholder="<?php echo($user['password'])?>" required>
+               <label for="role">rôle : <?php echo($user['role'])?></label>
+               <input type="text" id="role" name="role" value="<?php echo($user['role'])?>" required>
             </div>
             <div>
                 <div>
-               <label for="nom">confirmation mot de passe: <?php echo($user['password'])?></label>
-               <input type="password" id="password" name="password" placeholder="<?php echo($user['password'])?>" required><button type="submit">modifier</button>
+               <label for="password">mot de passe: <?php echo($user['password'])?></label>
+               <input type="password" id="password" name="password" required>
+            </div>
+            <div>
+                <div>
+               <label for="passwordcheck">confirmation mot de passe: <?php echo($user['password'])?></label>
+               <input type="password" id="passwordcheck" name="passwordcheck" required><button type="submit" name="modifier" value="1">modifier</button>
             </div>
             </div>
          </form>

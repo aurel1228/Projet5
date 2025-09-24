@@ -3,31 +3,44 @@
 require __DIR__."/../../model/User.php";  
 
 $user=User::getOne($_GET['id']);
-var_dump($username);
-
-require __DIR__."/../../views/admin/modifier.php";  
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST['pseudo'];
-    $role = $_POST['rolel'];
-    $password = $_POST['password'];
 
 
 
-    } else {
-        $update = $conn->prepare("INSERT INTO userdata (username, email, password) VALUES (?, ?, ?)");
-        $update->bind_param($username, $role, $password);
+
+
+
+if (isset($_POST["modifier"]) && $_POST["modifier"]==="1") {
+    $id = $_POST["id"]??"";
+    $pseudo = $_POST['pseudo']??null;
+    $role = $_POST['role']??"user";
+    $password = $_POST['password']??null;
+    $passwordcheck = $_POST['passwordcheck']??null;
+var_dump($pseudo);
+var_dump($role);
+var_dump($password);
+var_dump($passwordcheck);
+var_dump($id);
+try{
+        $update = DB::getConn()->prepare("UPDATE users SET pseudo=:pseudo, role=:role, password=:password WHERE id=:id");
+        $update->bindValue("id", $id, PDO::PARAM_INT);
+        $update->bindValue("pseudo", $pseudo, PDO::PARAM_STR);
+        $update->bindValue("role", $role, PDO::PARAM_STR);
+        $update->bindValue("password", password_hash($password,PASSWORD_DEFAULT), PDO::PARAM_STR);
 
         if ($update->execute()) {
             $message = "changement validé";
 
         } else {
-            $message = "Error: " . $update->error;
+            $message = "aucune mise a jour";
         }
 
+    } catch(Throwable $exception){
+        $message="error:".$exception->getMessage();
     }
+}
 
-var_dump($conn);
+var_dump($message);
 
 
+require __DIR__."/../../views/admin/modifier.php";  
 
