@@ -19,8 +19,20 @@ class User{
         else{
             return null;
         }
+    }
 
-
+    public static function hasDuplicate(int $userId, string $pseudo):bool{
+        $duplicate= DB::getConn()->prepare("SELECT count(*) as nb from users where pseudo=:pseudo and id!=:id");
+        $duplicate->bindValue(':id', $userId, PDO::PARAM_INT);
+        $duplicate->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
+        $duplicate->execute();
+        $nbLigne=(int)$duplicate->fetch(PDO::FETCH_COLUMN);
+        if ($nbLigne===0){
+            return false;
+        }
+        else{
+            return true;
+        }
     }
 
 }
