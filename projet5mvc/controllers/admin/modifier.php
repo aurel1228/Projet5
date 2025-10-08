@@ -3,9 +3,9 @@
 require __DIR__ . "/../../model/User.php";
 
 $user = User::getOne($_GET["id"]);
-function saveForm(){
+function saveForm():?string{
     if (!isset($_POST["modifier"]) || $_POST["modifier"] !== "1") {
-        return;
+        return null;
     }
     $id = $_POST["id"] ?? "";
     $pseudo = $_POST["pseudo"] ?? null;
@@ -20,24 +20,27 @@ function saveForm(){
     var_dump($id);
 
     if(User::hasDuplicate($id, $pseudo)){
-        echo "ce pseudo existe déjà pour un autre utilisateur.";
-        return;
+        return "ce pseudo existe déjà pour un autre utilisateur.";
     }
 
     if ($_POST["password"] !== $_POST["passwordcheck"]) {
-        echo "votre mot de passe ne correspond pas.";
-        return;
+        return "votre mot de passe ne correspond pas.";
     }
- 
 
- //   try {
-        if (User::userUpdate($id, $pseudo, $role, $password)) {  
- //   } catch (Throwable $exception) {
-  //      $message = "error:" . $exception->getMessage();
-      }
+    try {
+        if (User::userUpdate($id, $pseudo, $role, $password)) { 
+            return "mise a jour réussi";
+        }
+        else {
+            return "aucune mise à jour";
+        }    
+    } catch (Throwable $exception) {
+        echo "error:" . $exception->getMessage();
+    }
+    return null;
 
 }
-saveForm();
-//var_dump($message);
+$message=saveForm();
+
 
 require __DIR__ . "/../../views/admin/modifier.php";

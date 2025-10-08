@@ -29,6 +29,7 @@
                <div>
                   <label for="passwordcheck">confirmation mot de passe :</label>
                   <input type="password" id="passwordcheck" name="passwordcheck" required><button type="submit" name="modifier" value="1">modifier</button>
+                  <?php echo($message)?>
                </div>
             </div>
       </form>
