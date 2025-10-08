@@ -30,21 +30,11 @@ function saveForm(){
     }
  
 
-    try {
-        $update = DB::getConn()->prepare("UPDATE users SET pseudo=:pseudo, role=:role, password=:password WHERE id=:id",);
-        $update->bindValue("id", $id, PDO::PARAM_INT);
-        $update->bindValue("pseudo", $pseudo, PDO::PARAM_STR);
-        $update->bindValue("role", $role, PDO::PARAM_STR);
-        $update->bindValue("password",password_hash($password, PASSWORD_DEFAULT),PDO::PARAM_STR,);
-
-        if ($update->execute()) {
-        $message = "changement validé";
-        } else {
-        $message = "aucune mise a jour";
-        }
-    } catch (Throwable $exception) {
-        $message = "error:" . $exception->getMessage();
-    }
+ //   try {
+        if (User::userUpdate($id, $pseudo, $role, $password)) {  
+ //   } catch (Throwable $exception) {
+  //      $message = "error:" . $exception->getMessage();
+      }
 
 }
 saveForm();

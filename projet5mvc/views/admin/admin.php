@@ -28,5 +28,8 @@
                ?>
          </tbody>
       </table>
+<a href="/admin/add.php" class="button">ajouter utilisateur</a>
+
+
    </body>
 </html>
