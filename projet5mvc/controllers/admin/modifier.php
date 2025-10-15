@@ -23,6 +23,10 @@ function saveForm():?string{
         return "ce pseudo existe déjà pour un autre utilisateur.";
     }
 
+    if($_POST["role"] == "user"||"admin"){
+        return "mauvais rôle choisis.";
+    }    
+
     if ($_POST["password"] !== $_POST["passwordcheck"]) {
         return "votre mot de passe ne correspond pas.";
     }

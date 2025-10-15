@@ -49,6 +49,16 @@ class User{
         }
     }
 
+    public static function addUser(string $id, string $pseudo, string $role, #[SensitiveParameter]string $password):bool{
+        $add = DB::getConn()->prepare("INSERT INTO users (pseudo, role, password) VALUES (?,?,?)");
+        $add->bindValue("id", $id, PDO::PARAM_INT);
+        $add>bindValue("pseudo", $pseudo, PDO::PARAM_STR);
+        $add->bindValue("role", $role, PDO::PARAM_STR);
+        $add->bindValue("password",password_hash($password, PASSWORD_DEFAULT),PDO::PARAM_STR,);
+        $add->execute();
+
+    }
+
 
 }
 ?>

@@ -28,7 +28,7 @@
                ?>
          </tbody>
       </table>
-<a href="/admin/add.php" class="button">ajouter utilisateur</a>
+<a href="/admin/modifier?id=<?= $user["id"]=0 ?>">ajouter</a>
 
 
    </body>
