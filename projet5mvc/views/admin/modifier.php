@@ -28,8 +28,8 @@
             <div>
                <div>
                   <label for="passwordcheck">confirmation mot de passe :</label>
-                  <input type="password" id="passwordcheck" name="passwordcheck" required><button type="submit" name="modifier" value="1">modifier</button>
-                  <button type="submit" name="ajouter" value="1">ajouter</button>
+                  <input type="password" id="passwordcheck" name="passwordcheck" required><button type="submit" name="modifier" value="1"><?php if ($user['id'] == 0){ echo "ajouter";}
+                  else{echo "modifier";}?></button>
                   <?php echo($message)?>
                </div>
             </div>
