@@ -13,6 +13,8 @@
                <th scope="col">Nom utilisateur</th>
                <th scope="col">Rôle</th>
                <th scope="col">Modifier</th>
+               <th scope="col">Supprimer</th>
+               
             </tr>
          </thead>
          <tbody>
@@ -21,6 +23,7 @@
                <td><?= $user["pseudo"] ?></td>
                <td><?= $user["role"] ?></td>
                <td><a href="/admin/modifier?id=<?= $user["id"] ?>">modifier</a></td>
+               <td><a href="/admin/delete?id=<?= $user["id"] ?>">supprimer</a></td>
             </tr>
             <?php
                }   

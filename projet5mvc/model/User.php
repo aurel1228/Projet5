@@ -60,6 +60,26 @@ class User{
         return $add->lastInsertId();
     }
 
+    public static function deleteUser(string $id):bool{
+        $delete = DB::getConn()->prepare("DELETE FROM users WHERE id=?");
+        $delete->bindValue("id", $id, PDO::PARAM_INT);
+         if ($delete->execute()) {
+            return true;
+        } 
+        else {
+            return false;
+        }
+    }
+
+ /*    public static function getInfo(int $id, string $pseudo, string $role):array|null{
+        $queryInfo= DB::getConn()->prepare('SELECT * FROM users WHERE id=:id, pseudo=:pseudo, role=:role');  
+        $queryInfo->bindValue(':id', $id, PDO::PARAM_INT);
+        $queryInfo->bindValue(':pseudo', $pseudo, PDO::PARAM_INT);
+        $queryInfo->bindValue(':role', $role, PDO::PARAM_INT);
+        $queryInfo->execute();
+        $queryInfo->fetch();
+    }
+ */       
 
 }
 ?>

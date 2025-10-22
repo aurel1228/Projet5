@@ -14,7 +14,11 @@
 
        case 'admin/modifier':
            require $controllerDir . '/admin/modifier.php';
-           break; 
+           break;
+
+       case 'admin/delete':
+           require $controllerDir . '/admin/delete.php';
+           break;      
 
        default:
            http_response_code(404);
