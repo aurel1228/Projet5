@@ -32,7 +32,7 @@
          </tbody>
       </table>
 <a href="/admin/modifier?id=<?= $user["id"]=0 ?>">ajouter</a>
-
+<?php echo $_SESSION["message"]??""; unset($_SESSION["message"]);?>
 
    </body>
 </html>

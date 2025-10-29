@@ -20,29 +20,34 @@ avant suppression:
     - id non valide /-> message d'erreur
     - validation de la suppression avec bouton valider/annuler
     - message de validation -> retour sur le pannel admin      
-    - annuler / renvoi sur la meme page  
+    - annuler / renvoi sur le meme lien
 
 */
 require __DIR__ . "/../../model/User.php";
 
 
 $user = User::getOne($_GET["id"]);
-function delete(){
-    if ($user['id'] > 0){
-       User::deleteUser();
-       echo "suprression réussi";
+
+
+function delete($user):?string{
+    if (!isset($_POST["delete"]) || $_POST["delete"] !== "1"){
+        return null;
+    }
+    if ($user["id"] > 0){
+       User::deleteUser($user["id"]);
+       $_SESSION["message"]="suppression réussi";
+       header("location:/admin");
+       exit();          
     } else {
-          echo "id non valide";
+          return "id non valide";
         } 
 
 
 
 
 
-
 }
-
-
+$message=delete($user);
 
 
 

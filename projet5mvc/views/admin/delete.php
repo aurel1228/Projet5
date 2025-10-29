@@ -11,6 +11,10 @@
       ID utilisateur:<?php echo($user['id'])?><br>
       pseudo utilisateur : <?php echo($user['pseudo'])?><br>
       rôle utilisateur : <?php echo($user['role'])?><br>
-      <button type="submit" name="supprimer" value="delete">Supprimer</button>
+      <form method="post">
+      <button type="submit" name="delete" value="1">Supprimer</button>
+      </form >
+      <a href="/admin">Annuler</a>
+      <?php echo $message ?>
    </body>
 </html>
