@@ -16,15 +16,41 @@ récupérer les infos utilisateurs
 avant suppression:
 		- id,pseudo,role	
 
+ test:
+    - id non valide /-> message d'erreur
+    - validation de la suppression avec bouton valider/annuler
+    - message de validation -> retour sur le pannel admin      
+    - annuler / renvoi sur la meme page  
+
 */
 require __DIR__ . "/../../model/User.php";
 
-//$user = User::getInfo($_GET["id"]);
 
 $user = User::getOne($_GET["id"]);
+function delete(){
+    if ($user['id'] > 0){
+       User::deleteUser();
+       echo "suprression réussi";
+    } else {
+          echo "id non valide";
+        } 
 
 
-var_dump($user);
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
 
 
 

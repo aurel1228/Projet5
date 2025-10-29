@@ -4,7 +4,7 @@ class User{
     public static function getAll():Generator{
         $reponse = DB::getConn()->prepare('SELECT * FROM users');
         $reponse->execute();
-        while (($user=$reponse->fetch())!==false){
+        while (($user=$reponse->fetch(PDO::FETCH_ASSOC))!==false){
             yield $user; 
         }
     }
@@ -13,7 +13,7 @@ class User{
         $queryUser= DB::getConn()->prepare('SELECT * FROM users WHERE id=:id');  
         $queryUser->bindValue(':id', $userId, PDO::PARAM_INT);
         $queryUser->execute();
-        if (($user=$queryUser->fetch())!==false){
+        if (($user=$queryUser->fetch(PDO::FETCH_ASSOC))!==false){
             return $user;
         }
         else{
@@ -61,7 +61,7 @@ class User{
     }
 
     public static function deleteUser(string $id):bool{
-        $delete = DB::getConn()->prepare("DELETE FROM users WHERE id=?");
+        $delete = DB::getConn()->prepare("DELETE FROM users WHERE id=:id");
         $delete->bindValue("id", $id, PDO::PARAM_INT);
          if ($delete->execute()) {
             return true;
@@ -70,16 +70,8 @@ class User{
             return false;
         }
     }
-
- /*    public static function getInfo(int $id, string $pseudo, string $role):array|null{
-        $queryInfo= DB::getConn()->prepare('SELECT * FROM users WHERE id=:id, pseudo=:pseudo, role=:role');  
-        $queryInfo->bindValue(':id', $id, PDO::PARAM_INT);
-        $queryInfo->bindValue(':pseudo', $pseudo, PDO::PARAM_INT);
-        $queryInfo->bindValue(':role', $role, PDO::PARAM_INT);
-        $queryInfo->execute();
-        $queryInfo->fetch();
-    }
- */       
+   
+    
 
 }
 ?>
