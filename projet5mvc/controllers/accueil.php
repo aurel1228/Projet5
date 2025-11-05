@@ -1,4 +1,6 @@
 <?php
+   require __DIR__ . "/../model/User.php";
+
    $env = parse_ini_file(__DIR__.'/../.env');
    
    // Url de l'API
@@ -24,6 +26,8 @@
    // Vent
    $speed = $json->wind->speed;
    $deg = $json->wind->deg;
+
+   
    
    require __DIR__."/../views/accueil.php";  
    ?>

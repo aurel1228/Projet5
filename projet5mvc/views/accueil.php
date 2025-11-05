@@ -14,15 +14,15 @@
          <h1>Connexion</h1>
          <form action="/page-traitement-donnees" method="post">
             <div>
-               <label for="nom">login</label>
-               <input type="text" id="login" name="login" placeholder="login" required>
+               <label for="pseudo">Nom utilisateur</label>
+               <input type="text" id="pseudo" name="login" placeholder="pseudo" required>
             </div>
             <div>
-               <label for="mdp">mot de passe</label>
-               <input type="password" id="mdp" name="mdp" placeholder="mot de passe" required>
+               <label for="password">mot de passe</label>
+               <input type="password" id="password" name="password" placeholder="mot de passe" required>
             </div>
             <div>
-               <button type="submit">connexion</button>
+               <button type="submit" name="connexion" value="1">connexion</button>
             </div>
          </form>
       </div>

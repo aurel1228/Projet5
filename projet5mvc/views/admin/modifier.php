@@ -30,6 +30,7 @@
                   <label for="passwordcheck">confirmation mot de passe :</label>
                   <input type="password" id="passwordcheck" name="passwordcheck" required><button type="submit" name="modifier" value="1"><?php if ($user['id'] == 0){ echo "ajouter";}
                   else{echo "modifier";}?></button>
+                  <button type="submit" name="delete" value="1">Supprimer</button>
                   <?php echo($message)?>
                </div>
             </div>

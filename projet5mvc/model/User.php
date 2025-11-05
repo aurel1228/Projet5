@@ -71,6 +71,18 @@ class User{
         }
     }
    
+    public static function loginUser(string $pseudo, #[SensitiveParameter]string $password):bool{
+        $login = DB::getConn()->prepare('SELECT * FROM users WHERE id=:id, password=:password'); 
+        $login->bindValue("pseudo", $pseudo, PDO::PARAM_STR); 
+        $login->bindValue("password",password_hash($password, PASSWORD_DEFAULT),PDO::PARAM_STR,);
+        if ($login = $pseudo && password_verify($password)) {
+            return true;
+        } 
+        else {
+            return false;
+       
+        }    
+    }
     
 
 }
