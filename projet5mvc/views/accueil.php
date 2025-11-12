@@ -10,22 +10,20 @@
       <title>projet 5</title>
    </head>
    <body>
-      <div class="login">
-         <h1>Connexion</h1>
-         <form action="/page-traitement-donnees" method="post">
-            <div>
-               <label for="pseudo">Nom utilisateur</label>
-               <input type="text" id="pseudo" name="login" placeholder="pseudo" required>
-            </div>
-            <div>
-               <label for="password">mot de passe</label>
-               <input type="password" id="password" name="password" placeholder="mot de passe" required>
-            </div>
-            <div>
-               <button type="submit" name="connexion" value="1">connexion</button>
-            </div>
+      <?php if (empty($_SESSION['role']))
+         {echo "<h1>Connexion</h1>
+         <form method=\"post\">
+               <label for=\"pseudo\">Nom utilisateur</label>
+               <input type=\"text\" id=\"pseudo\" name=\"login\" placeholder=\"pseudo\" required>
+            
+          
+               <label for=\"password\">mot de passe</label>
+               <input type=\"password\" id=\"password\" name=\"password\" placeholder=\"mot de passe\" required>
+           
+
+               <button type=\"submit\" name=\"connexion\" value=\"1\">connexion</button>
          </form>
-      </div>
+      </div>";}?>
       <?php 
          switch($weather)
          {

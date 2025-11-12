@@ -27,7 +27,29 @@
    $speed = $json->wind->speed;
    $deg = $json->wind->deg;
 
-   
+function connexion():?string{
+    if (!isset($_POST["connexion"]) || $_POST["connexion"] !== "1") {
+        return null;
+    }
+
+    if(empty($_POST["pseudo"])){
+        return "aucun pseudo";
+    }
+
+    if (empty($_POST["password"])){
+        return "Veuillez remplir le mot de passe.";
+    }
+    else{
+      User::loginUser();
+         if ($_SESSION['role'] == "admin"){
+            header("location:/admin");
+         }
+    }
+    
+
+}    
+
+$message=connexion();
    
    require __DIR__."/../views/accueil.php";  
    ?>

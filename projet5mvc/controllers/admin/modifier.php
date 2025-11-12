@@ -16,12 +16,6 @@ function saveForm():?string{
     $password = $_POST["password"] ?? null;
     $passwordcheck = $_POST["passwordcheck"] ?? null;
 
-    var_dump($pseudo);
-    var_dump($role);
-    var_dump($password);
-    var_dump($passwordcheck);
-    var_dump($id);
-
     if(empty($_POST["pseudo"])){
         return "aucun pseudo";
     }
@@ -66,21 +60,7 @@ function saveForm():?string{
 
 }
 
-function delete($user):?string{
-    if (!isset($_POST["delete"]) || $_POST["delete"] !== "1"){
-        return null;
-    }
-    if ($user["id"] > 0){
-       User::deleteUser($user["id"]);
-       $_SESSION["message"]="suppression réussi";
-       header("location:/admin");
-       exit();          
-    } else {
-          return "id non valide";
-        } 
 
-}
-$message=delete($user);
 $message=saveForm();
 
 
