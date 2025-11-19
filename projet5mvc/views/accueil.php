@@ -1,20 +1,11 @@
-<!DOCTYPE html>
-<html lang="fr">
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <!-- Boostrap -->
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-      <!-- Style -->
-      <link rel="stylesheet" href="./style/style.css">
-      <title>projet 5</title>
-   </head>
+<?php //require require __DIR__ . "/_head.php"; ?>
+<?php //require require __DIR__ . "/_logout.php"; ?>
    <body>
-      <?php if (empty($_SESSION['role']))
+      <?php if (empty($_SESSION['pseudo']))
          {echo "<h1>Connexion</h1>
          <form method=\"post\">
                <label for=\"pseudo\">Nom utilisateur</label>
-               <input type=\"text\" id=\"pseudo\" name=\"login\" placeholder=\"pseudo\" required>
+               <input type=\"text\" id=\"pseudo\" name=\"pseudo\" placeholder=\"pseudo\" required>
             
           
                <label for=\"password\">mot de passe</label>
@@ -24,6 +15,7 @@
                <button type=\"submit\" name=\"connexion\" value=\"1\">connexion</button>
          </form>
       </div>";}?>
+      <?php echo $message; ?>
       <?php 
          switch($weather)
          {

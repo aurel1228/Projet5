@@ -18,7 +18,11 @@
 
        case 'admin/delete':
            require $controllerDir . '/admin/delete.php';
-           break;      
+           break;  
+
+       case 'logout':
+           require $controllerDir . 'logout.php';
+           break;        
 
        default:
            http_response_code(404);

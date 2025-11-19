@@ -57,7 +57,7 @@ class User{
         if (!$add->execute()) {
             return null;
         } 
-        return $add->lastInsertId();
+        return DB::getConn()->lastInsertId();
     }
 
     public static function deleteUser(string $id):bool{

@@ -40,10 +40,17 @@ function connexion():?string{
         return "Veuillez remplir le mot de passe.";
     }
     else{
-      User::loginUser();
+      if (User::loginUser($_POST["pseudo"], $_POST["password"])){
          if ($_SESSION['role'] == "admin"){
             header("location:/admin");
+            exit();
          }
+         return null;
+
+      }else{
+      return "connexion échoué";
+      }
+         
     }
     
 
