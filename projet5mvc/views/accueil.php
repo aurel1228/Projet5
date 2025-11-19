@@ -1,5 +1,5 @@
-<?php //require require __DIR__ . "/_head.php"; ?>
-<?php //require require __DIR__ . "/_logout.php"; ?>
+<?php $titre = "projet5"; require __DIR__ . "/_head.php"; ?>
+<?php require __DIR__ . "/_logoutButton.php"; ?>
    <body>
       <?php if (empty($_SESSION['pseudo']))
          {echo "<h1>Connexion</h1>

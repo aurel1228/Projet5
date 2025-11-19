@@ -23,8 +23,9 @@
        case 'logout':
            require $controllerDir . 'logout.php';
            break;        
-
+        
        default:
+       var_dump($request);
            http_response_code(404);
            require $controllerDir . 'error.php';
    }

@@ -1,8 +1,5 @@
 <?php
-function logout(){
    session_unset();
-   header("location: /accueil.php");
+   header("location: /");
    exit();
-}   
-   require __DIR__."/../views/logout.php"; 
-   ?>
+?>
