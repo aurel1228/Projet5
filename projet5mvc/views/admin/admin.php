@@ -1,4 +1,5 @@
-<?php require __DIR__ . "/_headAdmin.php"; ?>
+<?php $titre = "page d'administration"; require __DIR__ . "/_headAdmin.php"; ?>
+<?php require __DIR__ . "/../_logoutButton.php"; ?>
    <body>
       <table>
          <thead>
@@ -26,6 +27,7 @@
       </table>
 <a href="/admin/modifier?id=<?= $user["id"]=0 ?>">ajouter</a>
 <?php echo $_SESSION["message"]??""; unset($_SESSION["message"]);?>
+<a href="/">retour accueil</a>
 
    </body>
 </html>

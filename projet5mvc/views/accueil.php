@@ -1,4 +1,4 @@
-<?php $titre = "projet5"; require __DIR__ . "/_head.php"; ?>
+<?php $titre = "projet5 Accueil"; require __DIR__ . "/_head.php"; ?>
 <?php require __DIR__ . "/_logoutButton.php"; ?>
    <body>
       <?php if (empty($_SESSION['pseudo']))
@@ -15,7 +15,11 @@
                <button type=\"submit\" name=\"connexion\" value=\"1\">connexion</button>
          </form>
       </div>";}?>
-      <?php echo $message; ?>
+      <?php echo $message; 
+             if (!empty($_SESSION["message"])){
+                echo $_SESSION["message"];}?>
+      <?php if ($_SESSION['role'] == "admin"){
+         echo "<a href=\"/admin\" id=\"logout\">page admin</a>";} ?>          
       <?php 
          switch($weather)
          {

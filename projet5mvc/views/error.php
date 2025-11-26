@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html>
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Erreur</title>
-   </head>
+<?php $titre = "page d'erreur"; require __DIR__ . "/_head.php"; ?>
    <body>
       Erreur 404  
+      <a href="/" id="retour">retour à la page d'accueil</a>
    </body>
 </html>

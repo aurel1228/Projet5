@@ -29,5 +29,6 @@
            http_response_code(404);
            require $controllerDir . 'error.php';
    }
-   
+   var_dump($_SESSION['role']);
+
    ?>

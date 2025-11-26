@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html>
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="/style/style.css">
-      <title>Page de modification</title>
-   </head>
+<?php if($user['id']>=1){ $titre = "page de modification"; require __DIR__ . "/_headAdmin.php"; }
+       else $titre = "page d'ajout"; require __DIR__ . "/_headAdmin.php";?>
+<?php require __DIR__ . "/../_logoutButton.php"; ?>
    <h1>ID UTILISATEUR :<?php echo($user['id'])?></h1>
    <body>
       <div class="login">
@@ -29,5 +24,6 @@
          </form>
       </div>
       <?php if($user['id'] > 0) {echo "<a href=\"/admin/delete?id=".$user['id']."\">suppression</a>";}?>
+      <a href="/admin">Annuler</a>
    </body>
 </html>
