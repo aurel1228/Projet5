@@ -6,7 +6,7 @@ $user = User::getOne($_GET["id"]);
 if ($user == null){
     $user = ["id"=>0, "pseudo"=>null, "role"=>"user","password"=>null];
 }
-function saveForm():?string{
+/*class formulaire*/function saveForm():?string{
     if (!isset($_POST["modifier"]) || $_POST["modifier"] !== "1") {
         return null;
     }

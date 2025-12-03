@@ -27,7 +27,7 @@
    $speed = $json->wind->speed;
    $deg = $json->wind->deg;
 
-function connexion():?string{
+/*class connexion */function connexion():?string{
     if (!isset($_POST["connexion"]) || $_POST["connexion"] !== "1") {
         return null;
     }

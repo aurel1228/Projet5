@@ -1,5 +1,6 @@
-<?php if($user['id']>=1){ $titre = "page de modification"; require __DIR__ . "/_headAdmin.php"; }
-       else $titre = "page d'ajout"; require __DIR__ . "/_headAdmin.php";?>
+<?php if($user['id']>=1){ $titre = "page de modification"; }
+       else { $titre = "page d'ajout"; }
+       require __DIR__ . "/_headAdmin.php"; ?>
 <?php require __DIR__ . "/../_logoutButton.php"; ?>
    <h1>ID UTILISATEUR :<?php echo($user['id'])?></h1>
    <body>

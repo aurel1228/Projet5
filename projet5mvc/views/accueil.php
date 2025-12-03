@@ -17,9 +17,10 @@
       </div>";}?>
       <?php echo $message; 
              if (!empty($_SESSION["message"])){
-                echo $_SESSION["message"];}?>
-      <?php if ($_SESSION['role'] == "admin"){
-         echo "<a href=\"/admin\" id=\"logout\">page admin</a>";} ?>          
+                echo $_SESSION["message"];
+                unset($_SESSION["message"]);}?>
+      <?php if (empty($_SESSION['role'])){}
+         else echo"<a href=\"/admin\" id=\"logout\">page admin</a>"; ?>          
       <?php 
          switch($weather)
          {

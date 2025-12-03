@@ -4,7 +4,7 @@ require __DIR__ . "/../../model/User.php";
 
 $user = User::getOne($_GET["id"]);
 
-function delete($user):?string{
+/*class delete*/ function delete($user):?string{
     if (!isset($_POST["delete"]) || $_POST["delete"] !== "1"){
         return null;
     }

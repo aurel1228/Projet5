@@ -8,7 +8,6 @@
                <th scope="col">Rôle</th>
                <th scope="col">Modifier</th>
                <th scope="col">Supprimer</th>
-               
             </tr>
          </thead>
          <tbody>
@@ -25,9 +24,8 @@
                ?>
          </tbody>
       </table>
-<a href="/admin/modifier?id=<?= $user["id"]=0 ?>">ajouter</a>
-<?php echo $_SESSION["message"]??""; unset($_SESSION["message"]);?>
-<a href="/">retour accueil</a>
-
+   <a href="/admin/modifier?id=<?= $user["id"]=0 ?>">ajouter un nouvel utilisateur</a>
+   <?php echo $_SESSION["message"]??""; unset($_SESSION["message"]);?>
+   <a href="/">retour accueil</a>
    </body>
 </html>
