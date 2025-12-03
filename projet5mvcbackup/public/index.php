@@ -1,0 +1,33 @@
+<?php
+   session_start();
+   $request = $_GET['action'];
+   require __DIR__."/../model/DB.php";  
+   $controllerDir = __DIR__.'/../controllers/';
+   switch ($request) {
+       case '':
+           require $controllerDir . 'accueil.php';
+           break;
+   
+       case 'admin':
+           require $controllerDir . '/admin/admin.php';
+           break;
+
+       case 'admin/modifier':
+           require $controllerDir . '/admin/modifier.php';
+           break;
+
+       case 'admin/delete':
+           require $controllerDir . '/admin/delete.php';
+           break;  
+
+       case 'logout':
+           require $controllerDir . 'logout.php';
+           break;        
+        
+       default:
+       var_dump($request);
+           http_response_code(404);
+           require $controllerDir . 'error.php';
+   }
+   
+   ?>
