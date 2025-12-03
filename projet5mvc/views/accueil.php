@@ -7,11 +7,9 @@
                <label for=\"pseudo\">Nom utilisateur</label>
                <input type=\"text\" id=\"pseudo\" name=\"pseudo\" placeholder=\"pseudo\" required>
             
-          
                <label for=\"password\">mot de passe</label>
                <input type=\"password\" id=\"password\" name=\"password\" placeholder=\"mot de passe\" required>
            
-
                <button type=\"submit\" name=\"connexion\" value=\"1\">connexion</button>
          </form>
       </div>";}?>
