@@ -1,4 +1,5 @@
 <?php
+mb_internal_encoding("UTF-8");
    session_start();
    $request = $_GET['action'];
    require __DIR__."/../model/DB.php";  
