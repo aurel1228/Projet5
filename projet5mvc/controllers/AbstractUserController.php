@@ -31,7 +31,7 @@
         }
         /**
          * récupère le role requis pour la page
-         * @return bool|string|null true=connécté peu importe le role, false=pas connecté, string=role, null=connecté ou non
+         * @return bool|string|null true=connécté peu importe le role, false=pas connecté, string=role, null=connecté ou non connecté
          */
         protected function getRole():bool|string|null{
             return null;
