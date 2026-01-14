@@ -1,6 +1,6 @@
 <?php
 namespace Projet5\Controllers;
-abstract class AbstracUserController implements ControllerInterface{
+abstract class AbstractUserController implements ControllerInterface{
     public function checkUser():bool{
         $roletest=$this->getRole();
         if($roletest===true){

@@ -4,10 +4,11 @@ use Projet5\Controllers\ControllerInterface;
 mb_internal_encoding("UTF-8");
    session_start();
    $request = $_GET['action'];
-   $class="Projet5\\Controllers\\$request"
+   $request=mb_substr($request, 1);
+   $class="Projet5\\Controllers\\$request";
         if(class_exists($class)){           
             $controller=new $class();
-            if($controller instanceof ControllerInterface::class){
+            if($controller instanceof ControllerInterface){
                 if($controller->checkUser()){
                     $controller->process();
                 }else{
@@ -20,7 +21,7 @@ mb_internal_encoding("UTF-8");
         }else{
            var_dump($request);
            http_response_code(404);
-           require $controllerDir . 'error.php';
+           require  __DIR__. '/../views/error.php';
         }
    /*require __DIR__."/../model/DB.php";  
    $controllerDir = __DIR__.'/../Controllers/';
