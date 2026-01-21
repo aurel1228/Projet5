@@ -1,10 +1,12 @@
 <?php
 namespace Projet5\Controllers;
+use Projet5\Model\User;
 class Home extends AbstractViewController{
     public function process():void{
-        parent::process();
+        $this->variableView["message"]=$this->connexion();
+        parent::process();     
     }
-    
+
     public function connexion():?string{
     if (!isset($_POST["connexion"]) || $_POST["connexion"] !== "1") {
         return null;
@@ -33,7 +35,7 @@ class Home extends AbstractViewController{
     
     }    
 }
-  
+
 /*
    require __DIR__ . "/../model/User.php";
 
