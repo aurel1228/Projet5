@@ -3,8 +3,7 @@ require_once __DIR__."/../vendor/autoload.php";
 use Projet5\Controllers\ControllerInterface;
 mb_internal_encoding("UTF-8");
    session_start();
-   $request = $_GET['action'];
-   $request=mb_substr($request, 1);
+   $request = str_replace("/","\\",$_GET['action']);
    $class="Projet5\\Controllers\\$request";
         if(class_exists($class)){           
             $controller=new $class();
@@ -19,7 +18,8 @@ mb_internal_encoding("UTF-8");
                 echo "le controller n'implémente pas ControllerInterface";
             }
         }else{
-           var_dump($request);
+           var_dump($request, $class);
+           exit();
            http_response_code(404);
            require  __DIR__. '/../views/error.php';
         }

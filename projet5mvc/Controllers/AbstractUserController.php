@@ -1,9 +1,10 @@
 <?php
 namespace Projet5\Controllers;
+use Projet5\RoleEnum;
 abstract class AbstractUserController implements ControllerInterface{
     public function checkUser():bool{
         $roletest=$this->getRole();
-        if($roletest===true){
+        if($roletest===RoleEnum::Connected){
             if(!empty($_SESSION["role"])){
                 return true;
             }
@@ -11,7 +12,7 @@ abstract class AbstractUserController implements ControllerInterface{
                 return false;
             }
         }
-        if($roletest===false){
+        if($roletest===RoleEnum::NotConnected){
             if(!empty($_SESSION["role"])){
                 return false;
             }
@@ -19,10 +20,10 @@ abstract class AbstractUserController implements ControllerInterface{
                 return true;
             }
         }
-        if($roletest===null){
+        if($roletest===RoleEnum::ConnectedOrNot){
             return true;
         }
-        if ($_SESSION["role"]==$roletest){
+        if ($_SESSION["role"]===$roletest->value){
             return true;
         }
         else{
@@ -32,10 +33,10 @@ abstract class AbstractUserController implements ControllerInterface{
     }
     /**
      * récupère le role requis pour la page
-     * @return bool|string|null true=connécté peu importe le role, false=pas connecté, string=role, null=connecté ou non connecté
+     * @return RoleEnum role requis pour la page
      */
-    protected function getRole():bool|string|null{
-        return null;
+    protected function getRole():RoleEnum{
+        return RoleEnum::ConnectedOrNot;
     }
 
 }
