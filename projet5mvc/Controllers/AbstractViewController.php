@@ -7,7 +7,8 @@ abstract class AbstractViewController extends AbstractUserController implements 
      */
     protected array $variableView=[];
     public function process():void {
-        $viewName=(new ReflectionClass($this))->getShortName();     
+        $viewName=(new ReflectionClass($this))->getName();
+        $viewName=mb_substr($viewName, mb_strlen("Projet5\\Controllers\\"));
         $twigLoader=new \Twig\Loader\FilesystemLoader();
         $twigLoader->prependPath(__DIR__."/../views");
         $enviLoader=new \Twig\Environment($twigLoader, ["cache"=>false]);

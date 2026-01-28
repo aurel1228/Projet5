@@ -7,7 +7,7 @@ class Home extends AbstractViewController{
         parent::process();     
     }
 
-    public function connexion():?string{
+    private function connexion():?string{
     if (!isset($_POST["connexion"]) || $_POST["connexion"] !== "1") {
         return null;
     }
@@ -22,7 +22,7 @@ class Home extends AbstractViewController{
     else{
       if (User::loginUser($_POST["pseudo"], $_POST["password"])){
          if ($_SESSION['role'] == "admin"){
-            header("location:/admin");
+            header("location:/Admin/Users");
             exit();
          }
          return null;
