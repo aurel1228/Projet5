@@ -18,8 +18,6 @@ mb_internal_encoding("UTF-8");
                 echo "le controller n'implémente pas ControllerInterface";
             }
         }else{
-           var_dump($request, $class);
-           exit();
            http_response_code(404);
            require  __DIR__. '/../views/error.php';
         }
