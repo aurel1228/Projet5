@@ -1,13 +1,9 @@
-<?php if($user['id']>=1){ $titre = "page de modification"; }
-       else { $titre = "page d'ajout"; }
-
-{% if user['id']=>1 %} 
+{% if user.id >= 1 %} 
    {% set titre = "page de modification" %}
-   {% elseif %}
+{% else %}
    {% set titre = "page d'ajout" %}
 {% endif %}               
 
-{% set titre = "page d'ajout" %}
 {% include "/Admin/_headAdmin.html.twig"  %}
 {% include "/_logoutButton.html.twig" %}
    <h1>ID UTILISATEUR :{{ user.id }}</h1>
@@ -27,14 +23,14 @@
             <input type="password" id="password" name="password" required>
 
             <label for="passwordcheck">confirmation mot de passe :</label>
-            <input type="password" id="passwordcheck" name="passwordcheck" required><button type="submit" name="modifier" value="1">{% if user['id'] == 0 %} ajouter {% elseif %} modifier {% endif %}</button>
+            <input type="password" id="passwordcheck" name="passwordcheck" required><button type="submit" name="modifier" value="1">{% if user.id == 0 %} ajouter {% else %} modifier {% endif %}</button>
             {{ message|default("") }}
          </form>
       </div>
-      {% if user['id']>0 %}
-      <a href="/admin/delete?id={{user['id']}}">suppression</a>
+      {% if user.id >0 %}
+         <a href="/Admin/Delete?id={{user.id}}">suppression</a>
       {% endif %}
-      <a href="/admin">Annuler</a>
+      <a href="/Admin/Users">Annuler</a>
    </body>
 </html>
 
@@ -67,3 +63,4 @@
       <a href="/admin">Annuler</a>
    </body>
 </html>
+#}

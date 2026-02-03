@@ -16,13 +16,13 @@
             <tr>
                <td>{{ user.pseudo }}</td>
                <td>{{ user.role }}</td>
-               <td><a href="/admin/modifier?id={{ user.id }}">modifier</a></td>
-               <td><a href="/admin/delete?id={{ user.id }}">supprimer</a></td>
+               <td><a href="/Admin/Modifier?id={{ user.id }}">modifier</a></td>
+               <td><a href="/Admin/Delete?id={{ user.id }}">supprimer</a></td>
             </tr>
             {% endfor %}
          </tbody>
       </table>
-   <a href="/admin/modifier?id=0">ajouter un nouvel utilisateur</a>
+   <a href="/Admin/Modifier?id=0">ajouter un nouvel utilisateur</a>
    {{ SESSION['message']|default("") }}
    <a href="/">retour accueil</a>
    </body>
