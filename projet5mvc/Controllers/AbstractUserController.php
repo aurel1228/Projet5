@@ -12,7 +12,7 @@ abstract class AbstractUserController implements ControllerInterface{
                 return false;
             }
         }
-        if($roletest===RoleEnum::NotConnected){
+        if($roletest===RoleEnum::NotConnected){ 
             if(!empty($_SESSION["role"])){
                 return false;
             }

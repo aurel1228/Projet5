@@ -5,8 +5,9 @@ use Projet5\Model\User;
 use Projet5\RoleEnum;
 class Delete extends AbstractViewController {
     public function process():void{
-        $this->variableView["message"]=$this->delete();
-        $this->variableView["user"]=$this->delete();
+        $currentUser=User::getOne($_GET["id"]);
+        $this->variableView["message"]=$this->delete($currentUser);
+        $this->variableView["user"]=$currentUser;
         parent::process();  
     }
 
@@ -15,20 +16,18 @@ class Delete extends AbstractViewController {
     }
 
     private function delete($user):?string{
-    if (!isset($_POST["delete"]) || $_POST["delete"] !== "1"){
-        return null;
-    }
-    if ($user["id"] > 0){
-       User::deleteUser($user["id"]);
-       $_SESSION["message"]="suppression réussi";
-       header("location:/Admin/Users");
-       exit();          
-    } else {
-          return "id non valide";
+        if (!isset($_POST["delete"]) || $_POST["delete"] !== "1"){
+            return null;
+        }
+        if ($user["id"] > 0){
+            User::deleteUser($user["id"]);
+            $_SESSION["message"]="suppression réussi";
+            header("location:/Admin/Users");
+            exit();          
+        } else {
+            return "id non valide";
         } 
-}
-
-
+    }
 }
 
 /*
