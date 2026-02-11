@@ -19,7 +19,7 @@ mb_internal_encoding("UTF-8");
             }
         }else{
            http_response_code(404);
-           require  __DIR__. '/../views/error.php';
+           require  __DIR__. '/../views/Error.html.twig';
         }
    /*require __DIR__."/../model/DB.php";  
    $controllerDir = __DIR__.'/../Controllers/';
