@@ -4,17 +4,5 @@ class Error extends AbstractViewController{
     public function process():void{
         http_response_code(404);
         parent::process(); 
-    }
-    
-    
+    } 
 }    
-
-
-
-
-
-/*
- require __DIR__."/../views/error.php";  
-*/
-
-?>

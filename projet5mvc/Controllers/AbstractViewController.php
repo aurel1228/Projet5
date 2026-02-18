@@ -20,8 +20,10 @@ abstract class AbstractViewController extends AbstractUserController implements 
 
 /*
 list variable:
-
-
+message 
+Users 
+id
+user
 */
 
 

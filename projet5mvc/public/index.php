@@ -14,7 +14,7 @@ if(!class_exists($class)){ //invoque la classe erreur s'il ne trouve pas de cont
     $class=Error::class;
 }           
 
-// instance la classe du controller, vérification des droits et traitement des controllers, gestion erreur
+// instance la classe du controller, vérification des droits et traitement des controllers, gestion des erreurs
 $controller=new $class();
 if($controller instanceof ControllerInterface){
     if($controller->checkUser()){
@@ -26,36 +26,3 @@ if($controller instanceof ControllerInterface){
     http_response_code(500);
     echo "le controller n'implémente pas ControllerInterface";
 }
-        
-         
-
-   /*require __DIR__."/../model/DB.php";  
-   $controllerDir = __DIR__.'/../Controllers/';
-   switch ($request) {
-       case '':
-           require $controllerDir . 'accueil.php';
-           break;
-   
-       case 'admin':
-           require $controllerDir . '/admin/admin.php';
-           break;
-
-       case 'admin/modifier':
-           require $controllerDir . '/admin/modifier.php';
-           break;
-
-       case 'admin/delete':
-           require $controllerDir . '/admin/delete.php';
-           break;  
-
-       case 'logout':
-           require $controllerDir . 'logout.php';
-           break;        
-        
-       default:
-       var_dump($request);
-           http_response_code(404);
-           require $controllerDir . 'error.php';
-   }*/
-   
-

@@ -12,12 +12,5 @@ class Users extends AbstractViewController {
     protected function getRole():RoleEnum{
         return RoleEnum::Admin;
     }
-
-
-
 }
-
-
-
-
 ?>

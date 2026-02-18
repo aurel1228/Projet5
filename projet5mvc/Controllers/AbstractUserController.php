@@ -2,6 +2,7 @@
 namespace Projet5\Controllers;
 use Projet5\RoleEnum;
 abstract class AbstractUserController implements ControllerInterface{
+    // test des roles utilisateurs pour connecté  / pas connecté / connecté et non connecté
     public function checkUser():bool{
         $roletest=$this->getRole();
         if($roletest===RoleEnum::Connected){
@@ -38,7 +39,6 @@ abstract class AbstractUserController implements ControllerInterface{
     protected function getRole():RoleEnum{
         return RoleEnum::ConnectedOrNot;
     }
-
 }
 
 

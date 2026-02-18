@@ -1,61 +1,32 @@
 {% set titre = "projet5 Accueil" %}
 {% include "/_head.html.twig"  %}
-  <body>
+   <body>
       {% if SESSION['pseudo'] is empty %}
-          <h1>Connexion</h1>
-         <form method="post">
-               <label for="pseudo">Nom utilisateur</label>
-               <input type="text" id="pseudo" name="pseudo" placeholder="pseudo" required>
-            
-               <label for="password">mot de passe</label>
-               <input type="password" id="password" name="password" placeholder="mot de passe" required>
-           
-               <button type="submit" name="connexion" value="1">connexion</button>
-         </form>
+      <h1>Connexion</h1>
+
+      <form method="post">
+
+         <label for="pseudo">Nom utilisateur</label>
+         <input type="text" id="pseudo" name="pseudo" placeholder="pseudo" required>
+
+         <label for="password">mot de passe</label>
+         <input type="password" id="password" name="password" placeholder="mot de passe" required>
+
+         <button type="submit" name="connexion" value="1">connexion</button>
+      </form>
       {% endif %}
       {{ message|default("") }}
       {{ SESSION['message']|default("") }}
       {% if SESSION['role'] is not empty %}
          <a href="/Admin/Users" id="logout">page admin</a>
       {% endif %}          
-      
-
-      
-
    </body>
 </html>
 
 
 
 
-
-
-
-
-
-
-{#
-<?php $titre = "projet5 Accueil"; require __DIR__ . "/_head.php"; ?>
-<?php require __DIR__ . "/_logoutButton.php"; ?>
-   <body>
-      <?php if (empty($_SESSION['pseudo']))
-         {echo "<h1>Connexion</h1>
-         <form method=\"post\">
-               <label for=\"pseudo\">Nom utilisateur</label>
-               <input type=\"text\" id=\"pseudo\" name=\"pseudo\" placeholder=\"pseudo\" required>
-            
-               <label for=\"password\">mot de passe</label>
-               <input type=\"password\" id=\"password\" name=\"password\" placeholder=\"mot de passe\" required>
-           
-               <button type=\"submit\" name=\"connexion\" value=\"1\">connexion</button>
-         </form>
-      </div>";}?>
-      <?php echo $message; 
-             if (!empty($_SESSION["message"])){
-                echo $_SESSION["message"];
-                unset($_SESSION["message"]);}?>
-      <?php if (empty($_SESSION['role'])){}
-         else echo"<a href=\"/admin\" id=\"logout\">page admin</a>"; ?>          
+{#          
       <?php 
          switch($weather)
          {
