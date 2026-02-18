@@ -16,7 +16,18 @@
             <input type="text" id="pseudo" name="pseudo" value="{{ user.pseudo }}" required>
 
             <label for="role">rôle : {{ user.role }}</label>
-            <input type="text" id="role" name="role" value="{{ user.role }}" required>
+            <select id="role" name="role" required>
+               {% for role in roles %}
+                  {% if role.available %}
+                     {% if user.role == role.value %}
+                        <option value="{{ role.value }}" selected>{{ role.name }}</option> 
+                     {% else %}  
+                        <option value="{{ role.value }}">{{ role.name }}</option> 
+                     {% endif %}      
+                  {% endif %}    
+               {% endfor %}
+            </select></br>   
+            {#<input type="text" id="role" name="role" value="{{ user.role }}" required>#}
             
             <label for="password">mot de passe :</label>
             <input type="password" id="password" name="password" required>

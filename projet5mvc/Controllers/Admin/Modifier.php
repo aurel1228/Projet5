@@ -6,6 +6,7 @@ use Projet5\RoleEnum;
 class Modifier extends AbstractViewController {
     private int $userId;
     public function process():void{
+        $this->variableView["roles"]=RoleEnum::cases();
         $this->userId=$_GET["id"];
         $this->variableView["message"]=$this->saveForm();
         $this->variableView["user"]=$this->userDefault();
