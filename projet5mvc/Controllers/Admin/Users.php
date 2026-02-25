@@ -2,7 +2,7 @@
 namespace Projet5\Controllers\Admin;
 use Projet5\Controllers\AbstractViewController;
 use Projet5\Model\User;
-use Projet5\RoleEnum;
+use Projet5\Tools\RoleEnum;
 class Users extends AbstractViewController {
     public function process():void{
         $this->variableView["Users"]=User::getAll();

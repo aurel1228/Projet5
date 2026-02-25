@@ -1,6 +1,6 @@
 <?php
 namespace Projet5\Controllers;
-use Projet5\RoleEnum;
+use Projet5\Tools\RoleEnum;
 abstract class AbstractUserController implements ControllerInterface{
     // test des roles utilisateurs pour connecté  / pas connecté / connecté et non connecté
     public function checkUser():bool{

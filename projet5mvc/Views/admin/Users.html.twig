@@ -1,0 +1,32 @@
+{% set titre = "page d'administration" %}
+{% include "/Admin/_headAdmin.html.twig"  %}
+{% include "/_logoutButton.html.twig" %}
+   <body>
+      <table>
+         <thead>
+            <tr>
+               <th scope="col">Nom utilisateur</th>
+               <th scope="col">Rôle</th>
+               <th scope="col">Modifier</th>
+               <th scope="col">Supprimer</th>
+            </tr>
+         </thead>
+         <tbody>
+            {% for user in Users %}
+            <tr>
+               <td>{{ user.pseudo }}</td>
+               <td>{{ user.role }}</td>
+               <td><a href="/Admin/Modifier?id={{ user.id }}">modifier</a></td>
+               <td><a href="/Admin/Delete?id={{ user.id }}">supprimer</a></td>
+            </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+      <a href="/Admin/Modifier?id=0">ajouter un nouvel utilisateur</a>
+
+      {{ SESSION['message']|default("") }}
+
+      <a href="/">retour accueil</a>
+      
+   </body>
+</html>
