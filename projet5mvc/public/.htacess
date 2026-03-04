@@ -1,4 +1,0 @@
-RewriteEngine On
-
-RewriteCond %{DOCUMENT_ROOT}/$0 !-f
-RewriteRule ^(.*)$ /index.php?action=$1 [QSA,DPI,L]
