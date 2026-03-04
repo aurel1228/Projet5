@@ -22,34 +22,22 @@
       {% endif %}  
       <form method="post">
 
-         <label for="pseudo">Voir météo de la ville ci-dessous</label>
+         <label for="meteo">Voir météo de la ville ci-dessous</label>
          <input type="text" id="city-input" name="cityName" placeholder="Entrez nom de la ville" required>
 
-         <button type="submit" id="search-btn" name="CheckCity">Validez</button>
+         <button type="button" id="search-btn" name="CheckCity">Validez</button>
+         <div id="error"></div>
       </form>
-         
-      {% if weather %}
-      {% elseif clear %}
-         <div class="icon sunny">
-            <div class="sun">
-               <div class="rays"></div>
-            </div>
-         </div>
-      {% elseif Drizzle %} 
-         <div class="icon sun-shower">
-         <div class="cloud"></div>
-         <div class="sun">
-            <div class="rays"></div>
-         </div>
-         <div class="rain"></div>
-      </div>
+      <div id="apimeteo"></div>
+      <script src="/js/Home.js"></script>
    </body>
 </html>
 
+         
 
 
-
-{#          
+{#
+       
       <?php 
          switch($weather)
          {
