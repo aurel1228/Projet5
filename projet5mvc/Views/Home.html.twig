@@ -19,7 +19,30 @@
       {{ SESSION['message']|default("") }}
       {% if SESSION['role'] is not empty %}
          <a href="/Admin/Users" id="logout">page admin</a>
-      {% endif %}          
+      {% endif %}  
+      <form method="post">
+
+         <label for="pseudo">Voir météo de la ville ci-dessous</label>
+         <input type="text" id="city-input" name="cityName" placeholder="Entrez nom de la ville" required>
+
+         <button type="submit" id="search-btn" name="CheckCity">Validez</button>
+      </form>
+         
+      {% if weather %}
+      {% elseif clear %}
+         <div class="icon sunny">
+            <div class="sun">
+               <div class="rays"></div>
+            </div>
+         </div>
+      {% elseif Drizzle %} 
+         <div class="icon sun-shower">
+         <div class="cloud"></div>
+         <div class="sun">
+            <div class="rays"></div>
+         </div>
+         <div class="rain"></div>
+      </div>
    </body>
 </html>
 

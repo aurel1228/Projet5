@@ -1,9 +1,10 @@
 document.getElementById("search-btn").addEventListener("click", () => {
   const city = document.getElementById("city-input").value;
+  console.log(city);
   if (city) {
     fetchWeather(city);
   } else {
-    displayError("Please enter a city name.");
+    displayError("Entez nom d'une ville");
   }
 });
 
@@ -13,7 +14,7 @@ function fetchWeather(city) {
   fetch(apiURL)
     .then(response => {
       if (!response.ok) {
-        throw new Error("City not found");
+        throw new Error("Ville non trouvé");
       }
       return response.json();
     })
