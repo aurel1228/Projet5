@@ -22,6 +22,7 @@ function fetchWeather(city) {
       if (!response.ok) {
         throw new Error("Ville non trouvé");
       }
+      console.log(response);
       return response.json();
     })
     .then(data => displayWeather(data))
