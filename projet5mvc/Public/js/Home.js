@@ -31,12 +31,12 @@ function fetchWeather(city) {
 const iderror = document.getElementById("error");
 
 function displayWeather(data) {
-  iderror.textContent = "";
   const temp =  data.main.temp;
   const feel_like = data.main.feel_like;
   const speed = data.wind.speed;
   const deg = data.wind.deg;
-  console.log(temp);
+  const desc = data.weather[0].description;
+  iderror.textContent = "";
   let html;
   switch(data.weather[0].main){ 
     case "Clear":
@@ -87,13 +87,17 @@ function displayWeather(data) {
       break;
   }
 document.getElementById("apimeteo").innerHTML= p.createHTML(html);
+document.getElementById("desc").innerText= desc;
+console.log(desc);
+document.getElementById("temp").innerText= temp+" degré";
+console.log(temp);
 
 }
 
 function displayError(error) {
   iderror.textContent = error;
 }
-document.getElementById("temp").textcontent="température";
+
 
  /*    <?php 
          switch($weather)

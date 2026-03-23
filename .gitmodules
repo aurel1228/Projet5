@@ -1,0 +1,3 @@
+[submodule "projet5mvc/submodules/trusted-types"]
+	path = projet5mvc/submodules/trusted-types
+	url = https://github.com/w3c/trusted-types.git
