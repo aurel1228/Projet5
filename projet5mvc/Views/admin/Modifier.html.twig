@@ -9,7 +9,7 @@
       <h1>ID UTILISATEUR :{{ user.id }}</h1>
       <div class="login">
          <h2>modification</h2>
-         <form method="post">
+         <form method="post" enctype="multipart/form-data">
             <input type="hidden" name="id" value="{{ user.id }}">
 
             <label for="pseudo">Nom utilisateur : {{ user.pseudo }}</label>
@@ -27,8 +27,11 @@
                   {% endif %}    
                {% endfor %}
             </select></br>   
-            {#<input type="text" id="role" name="role" value="{{ user.role }}" required>#}
-            
+
+            <label for="avatar">Ajouter un avatar</label>
+            <input type="file" id="avatar" name="avatar" accept="image/*" />
+            {#afficher buton suppression avatar et son image#}
+   
             <label for="password">mot de passe :</label>
             <input type="password" id="password" name="password" required>
 

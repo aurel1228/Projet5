@@ -33,9 +33,8 @@ const iderror = document.getElementById("error");
 
 function displayWeather(data) {
   const temp =  data.main.temp;
-  const feel_like = data.main.feel_like;
+  const feels_like = data.main.feels_like;
   const speed = data.wind.speed;
-  const deg = data.wind.deg;
   const desc = data.weather[0].description;
   iderror.textContent = "";
   let html;
@@ -87,92 +86,13 @@ function displayWeather(data) {
       </div>`;
       break;
   }
-document.getElementById("apimeteo").innerHTML= p.createHTML(html);
-document.getElementById("desc").innerText= desc;
-console.log(desc);
-document.getElementById("temp").innerText= temp+" degré";
-console.log(temp);
-
+   document.getElementById("apimeteo").innerHTML= p.createHTML(html);
+   document.getElementById("temp").innerText= temp+" °C";
+   document.getElementById("ressenti").innerText= feels_like+" °C ressenti";
+   document.getElementById("speed").innerText= speed+" Km/h";
+   document.getElementById("desc").innerText= desc;
 }
 
 function displayError(error) {
   iderror.textContent = error;
 }
-
-
- /*    <?php 
-         switch($weather)
-         {
-             case "Clear":
-                 ?>
-      <div class="icon sunny">
-         <div class="sun">
-            <div class="rays"></div>
-         </div>
-      </div>
-      <?php
-         break;
-         
-         case 'Drizzle':
-         ?>
-      <div class="icon sun-shower">
-         <div class="cloud"></div>
-         <div class="sun">
-            <div class="rays"></div>
-         </div>
-         <div class="rain"></div>
-      </div>
-      <?php 
-         break;
-         
-         case 'Rain':
-         ?>
-      <div class="icon rainy">
-         <div class="cloud"></div>
-         <div class="rain"></div>
-      </div>
-      <?php 
-         break;
-         
-         case 'Clouds':
-         ?>
-      <div class="icon cloudy">
-         <div class="cloud"></div>
-         <div class="cloud"></div>
-      </div>
-      <?php 
-         break;
-         
-         case 'Thunderstorm':
-         ?>
-      <div class="icon thunder-storm">
-         <div class="cloud"></div>
-         <div class="lightning">
-            <div class="bolt"></div>
-            <div class="bolt"></div>
-         </div>
-      </div>
-      <?php 
-         break;
-         
-         case 'Snow':
-         ?>
-      <div class="icon flurries">
-         <div class="cloud"></div>
-         <div class="snow">
-            <div class="flake"></div>
-            <div class="flake"></div>
-         </div>
-      </div>
-      <?php 
-         break;
-         }
-         ?>
-      <div class="meteo_desc text-left">
-         <h2>
-            <?php echo $temp; ?> °C / Ressenti <?php echo $feel_like; ?> °C <br />
-            <?php echo $speed; ?> Km/h - <?php echo $deg; ?> ° <br /> 
-            <?php echo $desc; ?>
-         </h2>
-      </div>
-      */
