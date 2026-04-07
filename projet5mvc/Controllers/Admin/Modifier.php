@@ -34,9 +34,8 @@ class Modifier extends AbstractViewController {
         $role = $_POST["role"] ?? "user";
         $password = $_POST["password"] ?? null;
         $passwordcheck = $_POST["passwordcheck"] ?? null;
-
-        
         $avatar = $_FILES["avatar"] ?? null; // nom de l'image
+        
         if  ($avatar !== null){
             if($avatar["error"] !== UPLOAD_ERR_OK){
                 die("erreur envoi fichier");
@@ -54,20 +53,52 @@ class Modifier extends AbstractViewController {
                 die("le fichier n'est pas une image");  // stop si ce n'est pas une image valide
             }
 
-            // Get file extension based on file type, to prepend a dot we pass true as the second parameter
+            // choisi l'extension des images
             $image_extension = image_type_to_extension($image_type, true);
-            if(!in_array($image_extension, array(".png", ".gif", ".jpg"))){
+            if(!in_array($image_extension, array(".png", ".gif", ".jpeg"))){
                 die("mauvaise extension");
             }
 
-            // Create a unique image name
+            // créer un nom unique aux images
             $image_name = bin2hex(random_bytes(16)) . $image_extension;
 
-            move_uploaded_file($image_file["tmp_name"],  __DIR__ . "/../../Public/images/avatar/" . $image_name); // déplacer image temporaire dans le bon répertoire
+            move_uploaded_file($avatar["tmp_name"],  __DIR__ . "/../../Public/images/avatar/" . $image_name); // déplacer image temporaire dans le bon répertoire
 
-            //  supprime avatar via button
+            //  supprime avatar via button      
+            // unlink(__DIR__ . "/../../Public/images/avatar/" )
+            //  return null;
+
+
 
             // taille(largueur, hauteur) MAX image controle ou reformater l'image au bon ratio
+            // charge l'image
+            
+            list($width, $height) = getimagesize( __DIR__ . "/../../Public/images/avatar/" . $image_name);
+
+            // on redimmensionne en 400x400
+            if ($width != 400){
+                $newWidth = 400;
+                $newHeight =  (int)round($newWidth * (float)$height / $width,0);
+        
+            }
+
+            elseif ($height != 400){
+                $newHeight = 400;
+                $newWidth =  (int)round($newHeight * (float)$width / $height,0);
+            }
+
+        
+
+            // nouvelle image
+            $source = imagecreatefromjpeg( __DIR__ ."/../../Public/images/avatar/" . $image_name);
+            $thumb = imagecreatetruecolor($newWidth, $newHeight);
+
+            // Resize
+            imagecopyresized($thumb, $source, 0, 0, 0, 0, $newWidth, $newHeight, $width, $height);
+
+            // Save the resized image
+            imagejpeg($thumb,  __DIR__ . "/../../Public/images/avatar/" . $image_name, 75);
+
         }
 
 
