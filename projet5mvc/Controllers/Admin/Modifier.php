@@ -34,10 +34,11 @@ class Modifier extends AbstractViewController {
         $role = $_POST["role"] ?? "user";
         $password = $_POST["password"] ?? null;
         $passwordcheck = $_POST["passwordcheck"] ?? null;
-        $avatar = $_FILES["avatar"] ?? null; // nom de l'image
+        $avatar = $_FILES["avatar"] ?? null; 
         
-        if  ($avatar !== null){
+        if  ($avatar ["size"] !== 0 && $avatar["tmp_name"] !==""){
             if($avatar["error"] !== UPLOAD_ERR_OK){
+                var_dump($avatar);
                 die("erreur envoi fichier");
             } 
             $avatarSize = filesize($avatar["tmp_name"]);
@@ -64,13 +65,17 @@ class Modifier extends AbstractViewController {
 
             move_uploaded_file($avatar["tmp_name"],  __DIR__ . "/../../Public/images/avatar/" . $image_name); // déplacer image temporaire dans le bon répertoire
 
-            //  supprime avatar via button      
+
+            //  supprime avatar via button   
+           // error_clear_last(); //clear les erreurs en mémoires
+
             // unlink(__DIR__ . "/../../Public/images/avatar/" )
             //  return null;
 
+           //vardump(error_get_last()); // récupère le libélé si il ya une erreur sur unlink
 
 
-            // taille(largueur, hauteur) MAX image controle ou reformater l'image au bon ratio
+            // taille(largueur, hauteur) MAX image reformater l'image au bon ratio
             // charge l'image
             
             list($width, $height) = getimagesize( __DIR__ . "/../../Public/images/avatar/" . $image_name);
@@ -79,15 +84,12 @@ class Modifier extends AbstractViewController {
             if ($width != 400){
                 $newWidth = 400;
                 $newHeight =  (int)round($newWidth * (float)$height / $width,0);
-        
             }
 
             elseif ($height != 400){
                 $newHeight = 400;
                 $newWidth =  (int)round($newHeight * (float)$width / $height,0);
             }
-
-        
 
             // nouvelle image
             $source = imagecreatefromjpeg( __DIR__ ."/../../Public/images/avatar/" . $image_name);
@@ -96,15 +98,18 @@ class Modifier extends AbstractViewController {
             // Resize
             imagecopyresized($thumb, $source, 0, 0, 0, 0, $newWidth, $newHeight, $width, $height);
 
-            // Save the resized image
+            // sauvegarde de l'image final
             imagejpeg($thumb,  __DIR__ . "/../../Public/images/avatar/" . $image_name, 75);
-
         }
+        else { 
+            if ($id !=""){ 
+                $image_name = User::getOne($id)['avatar'];
+            }else{
+                $image_name = null;
+            }
+        }            
 
-
-
-
-
+        
 
         if(empty($_POST["pseudo"])){
             return "aucun pseudo";
@@ -128,7 +133,7 @@ class Modifier extends AbstractViewController {
 
         try {
             if ($id == 0){
-                $id=User::addUser($pseudo, $role, $password);
+                $id=User::addUser($pseudo, $role, $password, $image_name);
                 if ($id !== null) { 
                     $this->userId=$id;
                     return "ajout réussi";
@@ -138,7 +143,7 @@ class Modifier extends AbstractViewController {
                 }    
             }
             else {
-                if (User::userUpdate($id, $pseudo, $role, $password)) { 
+                if (User::userUpdate($id, $pseudo, $role, $password, $image_name)) { 
                     return "mise a jour réussi";
                 }
                 else {

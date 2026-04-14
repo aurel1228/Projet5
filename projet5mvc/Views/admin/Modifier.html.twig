@@ -30,7 +30,10 @@
 
             <label for="avatar">Ajouter un avatar(recommandé pour 400*400)</label>
             <input type="file" id="avatar" name="avatar" accept="image/*" />
+            <img src="/images/avatar/{{ user.avatar }}" alt="image de l'avatar">
             <button type="submit" name="delete_avatar" value="delete">supprimer avatar</button>
+            
+
             {#afficher buton suppression avatar et son image#}
    
             <label for="password">mot de passe :</label>

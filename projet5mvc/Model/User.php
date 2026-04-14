@@ -37,13 +37,19 @@ class User{
         }
     }
 
-    public static function userUpdate(string $id, string $pseudo, string $role, #[SensitiveParameter]string $password):bool{
-        $update = DB::getConn()->prepare("UPDATE users SET pseudo=:pseudo, role=:role, password=:password WHERE id=:id",);
+    public static function userUpdate(string $id, string $pseudo, string $role, #[SensitiveParameter]string $password, ?string $avatar):bool{
+        $avatarOld=static::getOne($id)['avatar'];
+        $update = DB::getConn()->prepare("UPDATE users SET pseudo=:pseudo, role=:role, password=:password, avatar=:avatar WHERE id=:id",);
         $update->bindValue("id", $id, PDO::PARAM_INT);
         $update->bindValue("pseudo", $pseudo, PDO::PARAM_STR);
         $update->bindValue("role", $role, PDO::PARAM_STR);
         $update->bindValue("password",password_hash($password, PASSWORD_DEFAULT),PDO::PARAM_STR,);
+        $update->bindValue("avatar", $avatar, PDO::PARAM_STR);
         if ($update->execute()) {
+            if($avatar != $avatarold && $avatarOld !== null && file_exists(__DIR__."/../public/images/avatar/".$avatar)){
+                unlink(__DIR__."/../public/images/avatar/".$avatar);
+            }
+
             return true;
         } 
         else {
@@ -51,11 +57,12 @@ class User{
         }
     }
 
-    public static function addUser(string $pseudo, string $role, #[SensitiveParameter]string $password):?int{
-        $add = DB::getConn()->prepare("INSERT INTO users (pseudo, role, password) VALUES (:pseudo,:role,:password)");
+    public static function addUser(string $pseudo, string $role, #[SensitiveParameter]string $password, ?string $avatar):?int{
+        $add = DB::getConn()->prepare("INSERT INTO users (pseudo, role, password, avatar) VALUES (:pseudo,:role,:password,:avatar)");
         $add->bindValue("pseudo", $pseudo, PDO::PARAM_STR);
         $add->bindValue("role", $role, PDO::PARAM_STR);
         $add->bindValue("password",password_hash($password, PASSWORD_DEFAULT),PDO::PARAM_STR,);
+        $add->bindValue("avatar", $avatar, PDO::PARAM_STR);
         if (!$add->execute()) {
             return null;
         } 
@@ -63,9 +70,13 @@ class User{
     }
 
     public static function deleteUser(string $id):bool{
+        $avatar=static::getOne($id)['avatar'];
         $delete = DB::getConn()->prepare("DELETE FROM users WHERE id=:id");
         $delete->bindValue("id", $id, PDO::PARAM_INT);
          if ($delete->execute()) {
+            if (file_exists(__DIR__."/../public/images/avatar/".$avatar)){
+                unlink(__DIR__."/../public/images/avatar/".$avatar);
+            }
             return true;
         } 
         else {
