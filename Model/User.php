@@ -46,7 +46,7 @@ class User{
         $update->bindValue("password",password_hash($password, PASSWORD_DEFAULT),PDO::PARAM_STR,);
         $update->bindValue("avatar", $avatar, PDO::PARAM_STR);
         if ($update->execute()) {
-            if($avatar != $avatarold && $avatarOld !== null && file_exists(__DIR__."/../public/images/avatar/".$avatar)){
+            if($avatar != $avatarOld && $avatarOld !== null && file_exists(__DIR__."/../public/images/avatar/".$avatar)){
                 unlink(__DIR__."/../public/images/avatar/".$avatar);
             }
 
