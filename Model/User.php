@@ -46,10 +46,9 @@ class User{
         $update->bindValue("password",password_hash($password, PASSWORD_DEFAULT),PDO::PARAM_STR,);
         $update->bindValue("avatar", $avatar, PDO::PARAM_STR);
         if ($update->execute()) {
-            if($avatar != $avatarOld && $avatarOld !== null && file_exists(__DIR__."/../public/images/avatar/".$avatar)){
-                unlink(__DIR__."/../public/images/avatar/".$avatar);
+            if($avatar != $avatarOld && $avatarOld !== null && file_exists(__DIR__."/../public/images/avatar/".$avatarOld)){
+                unlink(__DIR__."/../public/images/avatar/".$avatarOld);
             }
-
             return true;
         } 
         else {
@@ -67,6 +66,20 @@ class User{
             return null;
         } 
         return DB::getConn()->lastInsertId();
+    }
+
+    public static function deleteAvatar(int $id):void{
+        $avatar=static::getOne($id)["avatar"];
+        if($avatar == null){
+            return;
+        }
+        $bddUpdate = DB::getConn()->prepare("UPDATE users SET avatar=null WHERE id=:id");
+        $bddUpdate->bindValue("id", $id, PDO::PARAM_INT);
+        if($bddUpdate->execute()) {
+            if(file_exists(__DIR__ . "/../../Public/images/avatar/" .$avatar)){
+                unlink(__DIR__ . "/../../Public/images/avatar/" .$avatar);
+            }
+        }
     }
 
     public static function deleteUser(string $id):bool{

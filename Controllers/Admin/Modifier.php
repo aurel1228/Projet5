@@ -6,8 +6,14 @@ use Projet5\Tools\RoleEnum;
 class Modifier extends AbstractViewController {
     private int $userId;
     public function process():void{
-        $this->variableView["roles"]=RoleEnum::cases();
         $this->userId=$_GET["id"];
+        //  supprime avatar via button   
+        if (isset($_GET["delete_avatar"]) && $_GET["delete_avatar"] == "1"){
+            User::deleteAvatar($this->userId);
+            header("location:?id=$this->userId");
+            exit();
+        }
+        $this->variableView["roles"]=RoleEnum::cases();
         $this->variableView["message"]=$this->saveForm();
         $this->variableView["user"]=$this->userDefault();
         parent::process();  
@@ -38,7 +44,6 @@ class Modifier extends AbstractViewController {
         
         if  ($avatar ["size"] !== 0 && $avatar["tmp_name"] !==""){
             if($avatar["error"] !== UPLOAD_ERR_OK){
-                var_dump($avatar);
                 die("erreur envoi fichier");
             } 
             $avatarSize = filesize($avatar["tmp_name"]);
@@ -65,16 +70,6 @@ class Modifier extends AbstractViewController {
 
             move_uploaded_file($avatar["tmp_name"],  __DIR__ . "/../../Public/images/avatar/" . $image_name); // déplacer image temporaire dans le bon répertoire
 
-
-            //  supprime avatar via button   
-           // error_clear_last(); //clear les erreurs en mémoires
-
-            // unlink(__DIR__ . "/../../Public/images/avatar/" )
-            //  return null;
-
-           //vardump(error_get_last()); // récupère le libélé si il ya une erreur sur unlink
-
-
             // taille(largueur, hauteur) MAX image reformater l'image au bon ratio
             // charge l'image
             
@@ -100,6 +95,7 @@ class Modifier extends AbstractViewController {
 
             // sauvegarde de l'image final
             imagejpeg($thumb,  __DIR__ . "/../../Public/images/avatar/" . $image_name, 75);
+         
         }
         else { 
             if ($id !=""){ 
@@ -107,8 +103,7 @@ class Modifier extends AbstractViewController {
             }else{
                 $image_name = null;
             }
-        }            
-
+        }    
         
 
         if(empty($_POST["pseudo"])){
