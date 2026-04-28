@@ -1,13 +1,13 @@
 {% set titre = "page de suppression" %}
 {% include "/Admin/_headAdmin.html.twig"  %}
-{% include "/_logoutButton.html.twig" %}
    <body>
+      {% include "/_logoutButton.html.twig" %}
       <h1>Information utilisateur</h1>
-      ID utilisateur: {{ user.id }}<br>
-      pseudo utilisateur : {{ user.pseudo }}<br>
-      rôle utilisateur : {{ user.role }}<br>
 
       <form method="post">
+         <label>ID utilisateur: {{ user.id }}<br></label>
+         <label>pseudo utilisateur : {{ user.pseudo }}<br></label>
+         <label>rôle utilisateur : {{ user.role }}<br></label>
          <button type="submit" name="delete" value="1">Supprimer</button>
       </form >
 

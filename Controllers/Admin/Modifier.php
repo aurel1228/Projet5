@@ -14,7 +14,7 @@ class Modifier extends AbstractViewController {
             exit();
         }
         $this->variableView["roles"]=RoleEnum::cases();
-        $this->variableView["message"]=$this->saveForm();
+        $this->variableView["message"]=$this->saveForm(); //récupérer message erreur
         $this->variableView["user"]=$this->userDefault();
         parent::process();  
     }
@@ -31,9 +31,9 @@ class Modifier extends AbstractViewController {
         return $user;
     }
 
-    private function saveForm():?string{
+    private function saveForm():void{
         if (!isset($_POST["modifier"]) || $_POST["modifier"] !== "1") {
-            return null;
+            return ;
         }
         $id = $_POST["id"] ?? "";
         $pseudo = $_POST["pseudo"] ?? null;
@@ -134,6 +134,7 @@ class Modifier extends AbstractViewController {
                     return "ajout réussi";
                 }
                 else {
+                  //  throw new Exception("ajout échoué", )
                     return "ajout échoué";
                 }    
             }
@@ -146,8 +147,8 @@ class Modifier extends AbstractViewController {
                 }    
             }   
         } catch (Throwable $exception) {
-            return "error:" . $exception->getMessage();
-        }
+            echo"error:" . $exception->getMessage();
+        } 
         return null;
     }
 }
