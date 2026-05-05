@@ -6,7 +6,6 @@ const p = trustedTypes.createPolicy('inner', {
 
 document.getElementById("search-btn").addEventListener("click", (event) => {
   const city = document.getElementById("meteo").value;
-  console.log(city);
   if (city) {
     fetchWeather(city);
   } else {
