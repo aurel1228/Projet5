@@ -1,65 +1,42 @@
 <?php
 namespace Projet5\Controllers;
 use Projet5\Model\User;
+use Exception;
+use Throwable;
 class Home extends AbstractViewController{
     public function process():void{
-        $this->variableView["message"]=$this->connexion();
+        $this->connexion(); //récupérer message erreur
         parent::process();     
     }
 
-    private function connexion():?string{
+    private function connexion():void{
         if (!isset($_POST["connexion"]) || $_POST["connexion"] !== "1") {
-            return null;
+            return;
         }
 
-        if(empty($_POST["pseudo"])){
-            return "aucun pseudo";
-        }
-
-        if (empty($_POST["password"])){
-            return "Veuillez remplir le mot de passe.";
-        }
-
-        else{
-            if (User::loginUser($_POST["pseudo"], $_POST["password"])){
-                if ($_SESSION['role'] == "admin"){
-                    header("location:/Admin/Users");
-                    exit();
-                }
-                return null;
+        try{
+            if(empty($_POST["pseudo"])){
+                 throw new Exception("aucun pseudo");
             }
+
+            if (empty($_POST["password"])){
+                 throw new Exception("veuillez remplir le mot de passe");
+            }
+
             else{
-                return "connexion échoué";
-            }      
+                if (User::loginUser($_POST["pseudo"], $_POST["password"])){
+                    if ($_SESSION['role'] == "admin"){
+                        header("location:/Admin/Users");
+                        exit();
+                    }
+                    return;
+                }
+                else{
+                     throw new Exception("connexion échoué");
+                }   
+            }          
+        }catch (Throwable $exception) {
+            $this->variableView["message"]="error:" . $exception->getMessage();
         }
     }    
 }
-
-/*
-   $env = parse_ini_file(__DIR__.'/../.env');
-   
-   // Url de l'API
-   $url = "http://api.openweathermap.org/data/2.5/weather?q=Strasbourg&lang=fr&units=metric&appid=".$env['API_KEY'];
-   
-   // On get les resultat
-   $raw = file_get_contents($url);
-   
-   // Décode la chaine JSON
-   $json = json_decode($raw);
-   
-   // Nom de la ville
-   $name = $json->name;
-   
-   // Météo
-   $weather = $json->weather[0]->main;
-   $desc = $json->weather[0]->description;
-   
-   // Températures
-   $temp = $json->main->temp;
-   $feel_like = $json->main->feels_like;
-   
-   // Vent
-   $speed = $json->wind->speed;
-   $deg = $json->wind->deg;
-
-*/

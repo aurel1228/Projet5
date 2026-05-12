@@ -9,7 +9,7 @@
       <h1>ID UTILISATEUR :{{ user.id }}</h1>
       <div class="login">
          <h2>modification</h2>
-         <form method="post" enctype="multipart/form-data">
+         <form method="post" id="form" enctype="multipart/form-data">
             <input type="hidden" name="id" value="{{ user.id }}">
 
             <label for="pseudo">Nom utilisateur : {{ user.pseudo }}</label>
@@ -40,13 +40,15 @@
             <input type="password" id="password" name="password" required>
 
             <label for="passwordcheck">confirmation mot de passe :</label>
-            <input type="password" id="passwordcheck" name="passwordcheck" required><button type="submit" name="modifier" value="1">{% if user.id == 0 %} ajouter {% else %} modifier {% endif %}</button>
-            {{ message|default("") }}
+            <input type="password" id="passwordcheck" name="passwordcheck" required><button type="submit" id"validez" name="modifier" value="1">{% if user.id == 0 %} ajouter {% else %} modifier {% endif %}</button>
+            
+            <div id="error">{{ message|default("") }}</div>
          </form>
       </div>
       {% if user.id >0 %}
          <a href="/Admin/Delete?id={{user.id}}">suppression</a>
       {% endif %}
          <a href="/Admin/Users">Annuler/Retour page précédente</a>
+         <script src="/js/Admin/Modifier.js"></script>
    </body>
 </html>

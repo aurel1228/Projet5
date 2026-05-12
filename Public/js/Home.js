@@ -6,6 +6,10 @@ const p = trustedTypes.createPolicy('inner', {
 
 document.getElementById("search-btn").addEventListener("click", (event) => {
   const city = document.getElementById("meteo").value;
+  const format = /[!@#$%^&*()_+=\[\]{};:"\\|,.<>\/?]*/;
+  if (city.match(format)){
+   displayError("Erreur dans le nom de la ville");
+  }
   if (city) {
     fetchWeather(city);
   } else {
@@ -92,6 +96,20 @@ function displayWeather(data) {
    document.getElementById("desc").innerText= desc;
 }
 
+document.getElementById("connexion").addEventListener("submit", (event) => {
+   const pseudo = document.getElementById("pseudo").value
+   const password = document.getElementById("password").value
+     if(pseudo === "") {
+       displayError("veuillez entrez un pseudo");
+       event.preventDefault();
+    }
+    if(password === "") {
+       displayError("veuillez entrez un mot de passe");
+       event.preventDefault();
+    }
+});
+
 function displayError(error) {
   iderror.textContent = error;
 }
+ 

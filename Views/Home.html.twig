@@ -4,10 +4,10 @@
       {% if SESSION['pseudo'] is empty %}
       <h1>Connexion</h1>
 
-      <form method="post">
+      <form id="connexion" method="post">
 
          <label for="pseudo">Nom utilisateur</label>
-         <input type="text" id="pseudo" name="pseudo" placeholder="pseudo" required>
+         <input type="text" id="pseudo" name="pseudo" placeholder="pseudo" required >
 
          <label for="password">mot de passe</label>
          <input type="password" id="password" name="password" placeholder="mot de passe" required>

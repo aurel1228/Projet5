@@ -102,6 +102,9 @@ class User{
         $login->bindValue("pseudo", $pseudo, PDO::PARAM_STR); 
         $login->execute();
         $info=$login->fetch(PDO::FETCH_ASSOC);
+        if($info === false){
+            return false;
+        }
         if (password_verify($password, $info['password'])) {
             $_SESSION['pseudo'] = $info['pseudo'];
             $_SESSION['role'] = $info['role'];
