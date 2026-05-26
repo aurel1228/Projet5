@@ -6,7 +6,7 @@ const p = trustedTypes.createPolicy('inner', {
 
 document.getElementById("search-btn").addEventListener("click", (event) => {
   const city = document.getElementById("meteo").value;
-  const format = /[!@#$%^&*()_+=\[\]{};:"\\|,.<>\/?]*/;
+  const format = /[!@#$%^&*()_+=\[\]{};:"\\|,.<>\/?]+/;
   if (city.match(format)){
    displayError("Erreur dans le nom de la ville");
   }
