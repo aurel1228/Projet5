@@ -98,7 +98,7 @@ class User{
     }
    
     public static function loginUser(string $pseudo, #[SensitiveParameter]string $password):bool{
-        $login = DB::getConn()->prepare('SELECT pseudo,password,role FROM users WHERE pseudo=:pseudo'); 
+        $login = DB::getConn()->prepare('SELECT pseudo,password,role,avatar FROM users WHERE pseudo=:pseudo'); 
         $login->bindValue("pseudo", $pseudo, PDO::PARAM_STR); 
         $login->execute();
         $info=$login->fetch(PDO::FETCH_ASSOC);
@@ -108,6 +108,7 @@ class User{
         if (password_verify($password, $info['password'])) {
             $_SESSION['pseudo'] = $info['pseudo'];
             $_SESSION['role'] = $info['role'];
+            $_SESSION['avatar'] = $info['avatar'];
             return true;
         } 
         else {

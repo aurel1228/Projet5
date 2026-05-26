@@ -6,6 +6,7 @@
 {% include "/Admin/_headAdmin.html.twig"  %}
    <body>
       {% include "/_logoutButton.html.twig" %}
+      {% include "/_info.html.twig" %}
       <h1>ID UTILISATEUR :{{ user.id }}</h1>
       <div class="login">
          <h2>modification</h2>
@@ -40,7 +41,7 @@
             <input type="password" id="password" name="password" required>
 
             <label for="passwordcheck">confirmation mot de passe :</label>
-            <input type="password" id="passwordcheck" name="passwordcheck" required><button type="submit" id"validez" name="modifier" value="1">{% if user.id == 0 %} ajouter {% else %} modifier {% endif %}</button>
+            <input type="password" id="passwordcheck" name="passwordcheck" required><button type="submit" id="validez" name="modifier" value="1">{% if user.id == 0 %} ajouter {% else %} modifier {% endif %}</button>
             
             <div id="error">{{ message|default("") }}</div>
          </form>

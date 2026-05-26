@@ -1,6 +1,8 @@
 {% set titre = "projet5 Accueil" %}
 {% include "/_head.html.twig"  %}
    <body>
+      {% include "/_logoutButton.html.twig" %}
+      {% include "/_info.html.twig" %}
       {% if SESSION['pseudo'] is empty %}
       <h1>Connexion</h1>
 
@@ -18,7 +20,7 @@
       {{ message|default("") }}
       {{ SESSION['message']|default("") }}
       {% if SESSION['role'] is not empty %}
-         <a href="/Admin/Users" id="logout">page admin</a>
+         <a href="/Admin/Users" id="backadmin">page admin</a>
       {% endif %}  
       <form method="post">
 

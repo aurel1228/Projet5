@@ -1,0 +1,7 @@
+{% if SESSION['pseudo'] is not empty %}
+
+<br>{{ SESSION.pseudo }}<br>
+    Rôle: {{ SESSION.role }}<br>
+    Avatar: <img src="{{ SESSION.avatar }}"><br>
+    
+{% endif %}

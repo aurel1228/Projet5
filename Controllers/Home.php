@@ -36,7 +36,7 @@ class Home extends AbstractViewController{
                 }   
             }          
         }catch (Throwable $exception) {
-            $this->variableView["message"]="error:" . $exception->getMessage();
+            $this->variableView["message"]=$exception->getMessage();
         }
     }    
 }

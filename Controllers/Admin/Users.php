@@ -6,6 +6,7 @@ use Projet5\Tools\RoleEnum;
 class Users extends AbstractViewController {
     public function process():void{
         $this->variableView["Users"]=User::getAll();
+        var_dump($_SESSION["avatar"]);
         parent::process();  
     }
 
