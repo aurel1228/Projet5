@@ -4,9 +4,9 @@
       {% include "/_logoutButton.html.twig" %}
       {% include "/_info.html.twig" %}
       {% if SESSION['pseudo'] is empty %}
-      <h1>Connexion</h1>
-
+      
       <form id="connexion" method="post">
+         <h3>Connexion</h3>
 
          <label for="pseudo">Nom utilisateur</label>
          <input type="text" id="pseudo" name="pseudo" placeholder="pseudo" required >

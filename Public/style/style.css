@@ -1,8 +1,14 @@
 body {
     background : #87bdd1;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+
 }
 
 *{
+    margin: 0;
+    padding: 0;
     font-family: sans-serif;
     box-sizing: border-box;
 }
@@ -24,6 +30,8 @@ ul{
 
 
 form {
+    display: flex;
+    flex-direction: column;
     width: 500px;
     border: 2px solid #ccc;
     padding: 45px;
