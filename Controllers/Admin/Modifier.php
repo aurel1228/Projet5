@@ -101,7 +101,7 @@ class Modifier extends AbstractViewController {
             
             }
             else { 
-                if ($id !=""){ 
+                if ($id != 0){ 
                     $image_name = User::getOne($id)['avatar'];
                 }else{
                     $image_name = null;

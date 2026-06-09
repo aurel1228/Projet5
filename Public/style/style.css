@@ -68,6 +68,13 @@ label{
     padding: 10px;
 }
 
+.pagination {
+    display: flex;
+	  justify-content: center;
+	  align-items: center;
+    margin: 10px auto;
+}
+
 button {
     float: right;
     background: #555;

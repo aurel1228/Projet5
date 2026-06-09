@@ -3,7 +3,7 @@
    <body>
       {% include "/_logoutButton.html.twig" %}
       {% include "/_info.html.twig" %}
-      <table>
+      <table id="tableau">
          <thead>
             <tr>
                <th scope="col">Nom utilisateur</th>
@@ -22,16 +22,21 @@
                <td><a href="/Admin/Delete?id={{ user.id }}">supprimer</a></td>     
                <td>{% if user.avatar is not null %}<img src="/images/avatar/{{ user.avatar }}" alt="image de l'avatar" style="width: 50px; height: 50px;">{% endif %}</td>    
             </tr>
-            {# tableau de 10 utilisateurs max
-               utilisé javascript pour gérer le changement des pages#}
             {% endfor %}
          </tbody>
       </table>
+      <div class="pagination">
+         <button id="previous">précédent</button>
+         <span id="pageInfo"></span>
+         <button id="next">suivant</button>
+      </div>   
+
       <a href="/Admin/Modifier?id=0">ajouter un nouvel utilisateur</a>
 
       {{ SESSION['message']|default("") }}
 
       <a href="/">retour accueil</a>
-      
+
+      <script src="/js/Admin/Users.js"></script>
    </body>
 </html>
