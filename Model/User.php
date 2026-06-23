@@ -11,6 +11,17 @@ class User{
         }
     }
 
+    public static function getPage(int $start, int $max):Generator{
+        $reponse = DB::getConn()->prepare('SELECT * FROM users ORDER BY pseudo LIMIT :max OFFSET :start');
+        $reponse->bindValue(":max", $max, PDO::PARAM_INT);
+        $reponse->bindValue(":start", $start-1, PDO::PARAM_INT);
+        $reponse->execute();
+        while (($user=$reponse->fetch(PDO::FETCH_ASSOC))!==false){
+            yield $user; 
+        }    
+
+    }
+
     public static function getOne(int $userId):array|null{
         $queryUser= DB::getConn()->prepare('SELECT * FROM users WHERE id=:id');  
         $queryUser->bindValue(':id', $userId, PDO::PARAM_INT);
@@ -24,7 +35,7 @@ class User{
     }
 
     public static function hasDuplicate(int $userId, string $pseudo):bool{
-        $duplicate= DB::getConn()->prepare("SELECT count(*) as nb from users where pseudo=:pseudo and id!=:id");
+        $duplicate= DB::getConn()->prepare("SELECT count(*) AS nb FROM users WHERE pseudo=:pseudo AND id!=:id");
         $duplicate->bindValue(':id', $userId, PDO::PARAM_INT);
         $duplicate->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
         $duplicate->execute();
@@ -116,5 +127,11 @@ class User{
        
         }    
     }
+
+    public static function userCount():int{
+        $count = DB::getConn()->prepare('SELECT count(*) as total FROM users'); 
+        $count->execute();
+        return $count->fetchColumn();
+    }    
 }
 ?>

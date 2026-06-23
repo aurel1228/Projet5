@@ -3,37 +3,67 @@
    <body>
       {% include "/_logoutButton.html.twig" %}
       {% include "/_info.html.twig" %}
-      {% if SESSION['pseudo'] is empty %}
-      
-      <form id="connexion" method="post">
-         <h3>Connexion</h3>
+      <div class="container">
+			<nav>
+				<ul>
+					<li><a href="#">Accueil</a></li>
+					<li><a href="">Portfolio</a></li>
+               <li><a href="">Connexion</a></li>
+					<li><a href="">Météo</a></li>
+				</ul>
+			</nav>
 
-         <label for="pseudo">Nom utilisateur</label>
-         <input type="text" id="pseudo" name="pseudo" placeholder="pseudo" required >
+         <section class="site-container">
+				<p>Bienvenu sur mon portfolio Projet5</p>
+				<h1>voici les projets que j'ai réalisé</h1>
+				<h4>sites réalisés dans le cadre d'un parcours Openclassrooms</h4>
 
-         <label for="password">mot de passe</label>
-         <input type="password" id="password" name="password" placeholder="mot de passe" required>
+				<div class="list-projet">
+					<a href="#">Voir les sites <span>&#x27f6</span></a>
+					<span>
+						projet1,2,3,4
+					</span>
+				</div>
+			</section>
+         {% if SESSION['pseudo'] is empty %}
+            <section class="login-container"></section>
+               <form id="connexion" method="post">
+                  <h1 id="login-title">Formulaire de connexion</h1>
 
-         <button type="submit" name="connexion" value="1">connexion</button>
-      </form>
-      {% endif %}
-      {{ message|default("") }}
-      {{ SESSION['message']|default("") }}
-      {% if SESSION['role'] is not empty %}
-         <a href="/Admin/Users" id="backadmin">page admin</a>
-      {% endif %}  
-      <form method="post">
+                  <label id="pseudo" for="pseudo">Nom utilisateur</label>
+                  <input type="text" id="pseudo" name="pseudo" placeholder="pseudo" required >
 
-         <label for="meteo">Voir météo de la ville ci-dessous</label>
-         <input type="text" id="meteo" name="cityName" placeholder="Entrez nom de la ville" required>
+                  <label id="password" for="password">mot de passe</label>
+                  <input type="password" id="password" name="password" placeholder="mot de passe" required>
 
-         <button type="button" id="search-btn" name="CheckCity">Validez</button>
-         <div id="error"></div>
-      </form>
-      <div id="apimeteo"></div>
-      <div id="temp"></div><div id="ressenti"></div>
-      <div id="speed"></div> 
-      <div id="desc"></div>   
+                  <button id="login-button" type="submit" name="connexion" value="1">connexion</button>
+               </form>
+            </section>
+         {% endif %}
+         {{ message|default("") }}
+         {{ SESSION['message']|default("") }}
+         {% if SESSION['role'] is not empty %}
+            <a href="/Admin/Users" id="backadmin">page admin</a>
+         {% endif %}
+    
+         <section class="meteo-container"></section>
+            <form method="post">
+
+               <label for="meteo">Voir météo de la ville ci-dessous</label>
+               <input type="text" id="meteo" name="cityName" placeholder="Entrez nom de la ville" required>
+
+               <button href="#desc" type="button" id="search-btn" name="CheckCity">Validez</button>
+               <div id="error"></div>
+            </form>
+          
+            <div id="apimeteo"></div>
+            <div id="temp"></div><div id="ressenti"></div>
+            <div id="speed"></div> 
+            <div id="desc"></div>
+            
+         </section>
+      </div>     
+
       <script src="/js/trustedtypes.api_only.build.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.7/purify.min.js" integrity="sha512-78KH17QLT5e55GJqP76vutp1D2iAoy06WcYBXB6iBCsmO6wWzx0Qdg8EDpm8mKXv68BcvHOyeeP4wxAL0twJGQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
       <script src="/js/Home.js"></script>

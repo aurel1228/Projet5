@@ -1,16 +1,37 @@
 body {
-    background : #87bdd1;
-    align-items: center;
-    justify-content: center;
-    padding: 0 10px;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1));
+  background-image: url("/./images/background/home5.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
-*{
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    box-sizing: border-box;
+.container {
+	position: relative;
+	height: 100vh;
+	width: 100%;
+	background-size: cover;
+	background-position: center;
+	padding: 0 8%;
+}
+
+nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 5px 0;
+}
+
+nav ul {
+	display: flex;
+	justify-content: flex-end;
+	flex: 1;
+	padding-right: 40px;
+	text-align: right;
+	list-style-type: none;
 }
 
 table {
@@ -28,20 +49,105 @@ ul{
     text-align: center;
 }
 
-
-form {
-    display: flex;
-    flex-direction: column;
-    width: 500px;
-    border: 2px solid #ccc;
-    padding: 45px;
-    background: #fff;
-    border-radius: 15px;
-    margin-left: 700px;
-    margin-top: 100px;
-    color: black;
-    
+ul li {
+	margin-right: 10px;
 }
+
+ul li a {
+	position: relative;
+	padding: 10px 20px;
+	text-decoration: none;
+	color: #fff;
+	font-size: 16px;
+}
+
+ul li a::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 0;
+	transform: translateX(-50%) translateY(-5px);
+	height: 3px;
+	background: #ffa400;
+	transition: 0.3s;
+}
+
+ul li a:hover::after {
+	width: 38%;
+}
+
+.site-container {
+	position: relative;
+  justify-content: center;
+	bottom: 10%;
+	color: #fff;
+}
+
+.site-container p {
+	font-size: 50px;
+	font-weight: bold;
+}
+
+.site-container h1 {
+	font-size: 120px;
+  color: white;
+	line-height: 120px;
+	margin-left: -10px;
+	background-clip: text;
+	background-position: 0 0;
+}
+
+.site-container h3 {
+	font-size: 40px;
+	font-weight: 500;
+}
+
+.site-container{
+	display: relative;
+	justify-content: center;
+}
+
+.login-container {
+	display: relative;
+	justify-content: center;
+	margin-top: 40px;
+}
+
+.meteo-container {
+	display: relative;
+	justify-content: center;
+	margin-top: 40px;
+}
+
+.a {
+	display: flex;
+	align-items: center;
+	padding: 5px 20px;
+	text-decoration: none;
+	color: #fff;
+	border: 1px solid #fff;
+	margin-right: 40px;
+	font-size: 18px;
+	transition: 0.3s;
+}
+
+.a:hover {
+	background-color: #fff;
+	color: #000;
+}
+
+.a span {
+	font-size: 15px;
+	font-weight: bold;
+	line-height: 2;
+	margin-left: 10px;
+}
+
+.span {
+	font-size: 18px;
+}
+
 
 h1 {
     text-align: center;
@@ -51,15 +157,6 @@ h1 {
 h2 {
     text-align: center;
     margin-bottom: 40px;
-}
-
-input {
-    display: block;
-    border: 2px solid #ccc;
-    width: 300px;
-    padding: 10px;
-    margin: 10px auto;
-    border-radius: 5px;
 }
 
 label{
@@ -108,18 +205,85 @@ a:hover{
     opacity: .7;
 }
 
-.container h1 
-{
-    color:white;
-    font-weight: lighter;
-    text-transform: uppercase;
-    margin-top: 100px;
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    border: 2px solid #ccc;
+    padding: 45px;
+    background: #fff;
+    color: black;
+    
 }
-.meteo_desc h2 
-{
-    color:white;
-    font-weight: lighter;
+
+input {
+    display: block;
+    border: 2px solid #ccc;
+    width: 300px;
+    padding: 10px;
+    margin: 10px auto;
+    border-radius: 5px;
 }
+
+form#connexion{
+  position: relative;
+  margin-inline: 1.5rem;
+  background-color: hsla(0, 0%, 100%, .01);
+  border: 2px solid hsla(0, 0%, 100%, .7);
+  padding: 2.5rem 1rem;
+  color: var(--white-color);
+  border-radius: 1rem;
+  backdrop-filter: blur(16px);
+
+}
+
+#login-title {
+  text-align: center;
+  font-size: var(--h1-font-size);
+  margin-bottom: 1.25rem;
+}
+
+#login-button {
+  width: 100%;
+  padding: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 4rem;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: hsla(0, 0%, 100%, .01);
+  border: 2px solid hsla(0, 0%, 100%, .7);
+}
+
+label#pseudo {
+  background: none;
+  color: white;
+  padding-block: 1rem;
+}
+
+label#password {
+  background: none;
+  color: white;
+  padding-block: 1rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Icones */
 .icon {
     position: relative;
