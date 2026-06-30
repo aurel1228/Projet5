@@ -10,7 +10,7 @@ body {
 }
 
 .container {
-	position: relative;
+	position: flex;
 	height: 100vh;
 	width: 100%;
 	background-size: cover;
@@ -67,7 +67,6 @@ ul li a::after {
 	bottom: 0;
 	right: 0;
 	width: 0;
-	transform: translateX(-50%) translateY(-5px);
 	height: 3px;
 	background: #ffa400;
 	transition: 0.3s;
@@ -109,15 +108,15 @@ ul li a:hover::after {
 }
 
 .login-container {
-	display: relative;
+	display: flex;
 	justify-content: center;
 	margin-top: 40px;
 }
 
 .meteo-container {
-	display: relative;
+	display: flex;
 	justify-content: center;
-	margin-top: 40px;
+  margin-top: 40px;
 }
 
 .a {
@@ -227,7 +226,7 @@ input {
 }
 
 form#connexion{
-  position: relative;
+  position: flex;
   margin-inline: 1.5rem;
   background-color: hsla(0, 0%, 100%, .01);
   border: 2px solid hsla(0, 0%, 100%, .7);
@@ -235,7 +234,6 @@ form#connexion{
   color: var(--white-color);
   border-radius: 1rem;
   backdrop-filter: blur(16px);
-
 }
 
 #login-title {
@@ -268,7 +266,35 @@ label#password {
   padding-block: 1rem;
 }
 
+form#meteoform{
+  position: flex;
+  margin-inline: 1.5rem;
+  background-color: hsla(0, 0%, 100%, .01);
+  border: 2px solid hsla(0, 0%, 100%, .7);
+  padding: 2.5rem 1rem;
+  color: var(--white-color);
+  border-radius: 1rem;
+  backdrop-filter: blur(16px);
+}
 
+#search-btn {
+  width: 100%;
+  padding: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 4rem;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: hsla(0, 0%, 100%, .01);
+  border: 2px solid hsla(0, 0%, 100%, .7);
+}
+
+#reponse {
+  background: none;
+  color: white;
+  padding-block: 1rem;
+  
+}
 
 
 

@@ -26,7 +26,7 @@
 				</div>
 			</section>
          {% if SESSION['pseudo'] is empty %}
-            <section class="login-container"></section>
+            <section class="login-container">
                <form id="connexion" method="post">
                   <h1 id="login-title">Formulaire de connexion</h1>
 
@@ -46,8 +46,8 @@
             <a href="/Admin/Users" id="backadmin">page admin</a>
          {% endif %}
     
-         <section class="meteo-container"></section>
-            <form method="post">
+         <section class="meteo-container">
+            <form id="meteoform" method="post">
 
                <label for="meteo">Voir météo de la ville ci-dessous</label>
                <input type="text" id="meteo" name="cityName" placeholder="Entrez nom de la ville" required>
@@ -55,11 +55,14 @@
                <button href="#desc" type="button" id="search-btn" name="CheckCity">Validez</button>
                <div id="error"></div>
             </form>
-          
-            <div id="apimeteo"></div>
-            <div id="temp"></div><div id="ressenti"></div>
-            <div id="speed"></div> 
-            <div id="desc"></div>
+            
+            
+               <div id="apimeteo"></div>
+            <div id="reponse">   
+               <div id="temp"></div><div id="ressenti"></div>
+               <div id="speed"></div> 
+               <div id="desc"></div>
+            </div>   
             
          </section>
       </div>     
