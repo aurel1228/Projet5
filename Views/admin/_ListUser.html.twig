@@ -1,0 +1,43 @@
+{% for user in Users %}
+            <tr>
+               <td>{{ user.pseudo }}</td>
+               <td>{{ user.role }}</td>
+               <td><a href="/Admin/Modifier?id={{ user.id }}">modifier</a></td>
+               <td><a href="/Admin/Delete?id={{ user.id }}">supprimer</a></td>     
+               <td>{% if user.avatar is not null %}<img src="/images/avatar/{{ user.avatar }}" alt="image de l'avatar" style="width: 50px; height: 50px;">{% endif %}</td> 
+            </tr> 
+{% endfor %}             
+
+
+{#
+- affichage de la page actuelle
+- bouton suivant+précédent /afficher le tableau suivant ou précédent
+les cellules du tableau qui s'actualise
+- si page max atteinte bouton grisé suivant
+- si page 1 bouton grisé précédent
+- bouton icone première/dernière page (<< />>)
+- grisé bouton << >> si page atteinte via attribut disabled en html
+----
+- changement de page javascript sur clique bouton
+- javascript info currentpage récupérer via html(document.getelement...)
+- javascript qui récupère les infos cellules backend(php)
+via requete ajax sur une page a créer url(Admin/ListUser?Page={nouveau numéro de page})
+ paramètre nouveau numéro de page à renvoyer
+Nouvelle page = résultat des 10 nouvelles celulles du tableau en html 
+- javascript remplacer avec innerHTML sur <tbody> /exemple : https://stackoverflow.com/questions/31872270/javascript-replace-text-in-an-element
+- actualise affichage de la page actuelle
+- gestion grisage des bouton par rapport à la page actuelle avec toggleAttribute("disabled");
+https://developer.mozilla.org/en-US/docs/Web/API/Element/toggleAttribute
+----
+- controler ListUser avec include pour rélier la vue
+- récupérer page actuelle $_GET
+- start = constmax(10) * (currentpage-1) + 1
+- controler va alimenter varibale Users avec fonction user::getpage(start ,const max)
+- déplacer const max dans model user
+- gérer le grisage du bouton suivant 
+----
+- gestion erreur et exeption
+- numéro de page par défaut
+- bloquer page avec RoleEnum
+
+   #}
