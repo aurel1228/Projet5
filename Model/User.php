@@ -3,6 +3,7 @@ namespace Projet5\Model;
 use Generator;
 use PDO;
 class User{
+    public const MAX=10;    
     public static function getAll():Generator{
         $reponse = DB::getConn()->prepare('SELECT * FROM users');
         $reponse->execute();
@@ -11,10 +12,10 @@ class User{
         }
     }
 
-    public static function getPage(int $start, int $max):Generator{
+    public static function getPage(int $start):Generator{
         $reponse = DB::getConn()->prepare('SELECT * FROM users ORDER BY pseudo LIMIT :max OFFSET :start');
-        $reponse->bindValue(":max", $max, PDO::PARAM_INT);
-        $reponse->bindValue(":start", $start-1, PDO::PARAM_INT);
+        $reponse->bindValue(":start", $start-1, PDO::PARAM_INT); 
+        $reponse->bindValue(":max", static::MAX, PDO::PARAM_INT);
         $reponse->execute();
         while (($user=$reponse->fetch(PDO::FETCH_ASSOC))!==false){
             yield $user; 
