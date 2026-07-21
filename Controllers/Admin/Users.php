@@ -6,6 +6,7 @@ use Projet5\Tools\RoleEnum;
 class Users extends AbstractViewController {
     public function process():void{
         $this->variableView["Users"]=User::getPage(1);
+        $this->variableView["totalPage"]=ceil(User::userCount()/10);
         parent::process();  
     }
 

@@ -13,6 +13,9 @@ class User{
     }
 
     public static function getPage(int $start):Generator{
+        if($start < 1){
+            return;
+        }
         $reponse = DB::getConn()->prepare('SELECT * FROM users ORDER BY pseudo LIMIT :max OFFSET :start');
         $reponse->bindValue(":start", $start-1, PDO::PARAM_INT); 
         $reponse->bindValue(":max", static::MAX, PDO::PARAM_INT);
