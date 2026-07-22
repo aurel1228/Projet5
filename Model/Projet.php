@@ -41,6 +41,17 @@ class Projet{
         }
     }   
     
+    public static function addProjet(string $lien, ?string $icon, int $ordre):?int{
+        $add = DB::getConn()->prepare("INSERT INTO projets (lien, icon, ordre) VALUES (:lien,:icon,:ordre)");
+        $add->bindValue("lien", $lien, PDO::PARAM_STR);
+        $add->bindValue("icon", $icon, PDO::PARAM_STR);
+        $add->bindValue("ordre", $ordre, PDO::PARAM_INT);
+        if (!$add->execute()) {
+            return null;
+        } 
+        return DB::getConn()->lastInsertId();
+    }
+
     public static function deleteIcon(int $id):void{
         $icon=static::getOne($id)["icon"];
         if($icon == null){

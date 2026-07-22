@@ -1,4 +1,4 @@
-{% if user.id >= 1 %} 
+{% if projet.id >= 1 %} 
    {% set titre = "page de modification des projets" %}
 {% else %}
    {% set titre = "page d'ajout des projets" %}
@@ -7,7 +7,7 @@
    <body>
       {% include "/_logoutButton.html.twig" %}
       {% include "/_info.html.twig" %}
-      <h1>ID du projet :{{ projet.id }}</h1>
+      <h1>Numéro du projet :{{ projet.ordre }}</h1>
       <div class="login">
          <h2>modification</h2>
          <form method="post" id="form" enctype="multipart/form-data">

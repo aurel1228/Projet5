@@ -5,7 +5,6 @@ use Projet5\Model\Projet;
 use Projet5\Tools\RoleEnum;
 use Exception;
 use Throwable;
-
 class ProjetsModifier extends AbstractViewController {
     private int $projetId;
     public function process():void{
@@ -16,7 +15,6 @@ class ProjetsModifier extends AbstractViewController {
             header("location:?id=$this->projetId");
             exit();
         }
-    
         $this->saveForm(); //récupérer message erreur 
         $this->variableView["projet"]=$this->projetDefault();
         parent::process();  
@@ -114,9 +112,9 @@ class ProjetsModifier extends AbstractViewController {
             }
   
             if ($id == 0){
-                $id=User::addUser($pseudo, $role, $password, $image_name);
+                $id=Projet::addProjet($lien, $image_name, $ordre);
                 if ($id !== null) { 
-                    $this->userId=$id;
+                    $this->projetId=$id;
                     throw new Exception("ajout réussi");
                 }
                 else {
