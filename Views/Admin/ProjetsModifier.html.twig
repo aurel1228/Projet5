@@ -1,0 +1,36 @@
+{% if user.id >= 1 %} 
+   {% set titre = "page de modification des projets" %}
+{% else %}
+   {% set titre = "page d'ajout des projets" %}
+{% endif %}               
+{% include "/Admin/_headAdmin.html.twig"  %}
+   <body>
+      {% include "/_logoutButton.html.twig" %}
+      {% include "/_info.html.twig" %}
+      <h1>ID du projet :{{ projet.id }}</h1>
+      <div class="login">
+         <h2>modification</h2>
+         <form method="post" id="form" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="{{ projet.id }}">
+
+            <label for="lien">lien du projet : {{ projet.lien }}</label>
+            <input type="text" id="lien" name="lien" value="{{ projet.lien }}" required>
+
+            <label for="icon">Ajouter une icone (recommandé pour 400*400)</label>
+            <input type="file" id="icon" name="icon" accept="image/*">
+            {% if projet.icon is not null %} 
+            <img src="/images/icon/{{ projet.icon }}" alt="image de l'icone" style="width: 50px; height: 50px;">
+            <a href="?delete_icon=1&id={{projet.id}}">supprimer l'icone</a>
+            {% endif %}
+   
+            <label for="ordre">numéro du projet : {{ projet.ordre }}</label>
+            <input type="text" id="ordre" name="ordre" required><button type="submit" id="validez" name="modifier" value="1">{% if projet.id == 0 %} ajouter {% else %} modifier {% endif %}</button>
+
+            <div id="error">{{ message|default("") }}</div>
+         </form>
+      </div>
+      {#{% if user.id >0 %}
+         <a href="/Admin/Delete?id={{user.id}}">suppression</a>
+      {% endif %} #}
+         <a href="/Admin/Projets">Annuler/Retour page précédente</a>
+   </body>

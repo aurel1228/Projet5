@@ -1,12 +1,11 @@
 <?php
 namespace Projet5\Controllers\Admin;
 use Projet5\Controllers\AbstractViewController;
-use Projet5\Model\User;
 use Projet5\Tools\RoleEnum;
-class Users extends AbstractViewController {
+use Projet5\Model\Projet;
+class Projets extends AbstractViewController {
     public function process():void{
-        $this->variableView["Users"]=User::getPage(1);
-        $this->variableView["totalPage"]=ceil(User::userCount()/10);
+        $this->variableView["Projets"]=Projet::getAll();
         parent::process();  
     }
 
