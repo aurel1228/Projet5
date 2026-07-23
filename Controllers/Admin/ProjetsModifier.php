@@ -110,6 +110,10 @@ class ProjetsModifier extends AbstractViewController {
             if(empty($_POST["lien"])){
                 throw new Exception("aucun lien");
             }
+
+            if(Projet::projetDuplicate($id, $ordre)){
+                throw new Exception("ce numéro de projet est déjà attribuer");
+            }            
   
             if ($id == 0){
                 $id=Projet::addProjet($lien, $image_name, $ordre);

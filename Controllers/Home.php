@@ -1,11 +1,13 @@
 <?php
 namespace Projet5\Controllers;
 use Projet5\Model\User;
+use Projet5\Model\Projet;
 use Exception;
 use Throwable;
 class Home extends AbstractViewController{
     public function process():void{
         $this->connexion(); //récupérer message erreur
+        $this->variableView["Projets"]=Projet::getAll();
         parent::process();     
     }
 

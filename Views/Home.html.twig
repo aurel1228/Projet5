@@ -16,13 +16,16 @@
          <section class="site-container">
 				<p>Bienvenu sur mon portfolio Projet5</p>
 				<h1>voici les projets que j'ai réalisé</h1>
-				<h4>sites réalisés dans le cadre d'un parcours Openclassrooms</h4>
 
 				<div class="list-projet">
-					<a href="#">Voir les sites <span>&#x27f6;</span></a>
-					<span>
-						projet1,2,3,4
-					</span>
+					<a href="#">Voir les sites : 
+
+               {% for projet in Projets %}
+                  <a href="{{ projet.lien }}"><img src="/images/icon/{{ projet.icon }}" alt="image du projet{{ projet.ordre}}"></a>
+               {% endfor %} 
+               
+               <h4>sites réalisés dans le cadre d'un parcours Openclassrooms</h4>
+
 				</div>
 			</section>
          {% if SESSION['pseudo'] is empty %}

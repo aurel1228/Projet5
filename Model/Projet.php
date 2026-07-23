@@ -66,8 +66,34 @@ class Projet{
         }
     }    
 
+    public static function deleteProjet(string $id):bool{
+        $icon=static::getOne($id)['icon'];
+        $delete = DB::getConn()->prepare("DELETE FROM projets WHERE id=:id");
+        $delete->bindValue("id", $id, PDO::PARAM_INT);
+         if ($delete->execute()) {
+            if (file_exists(__DIR__."/../public/images/icon/".$icon)){
+                unlink(__DIR__."/../public/images/icon/".$icon);
+            }
+            return true;
+        } 
+        else {
+            return false;
+        }
+    }
 
-
+    public static function ProjetDuplicate(int $projetId, int $ordre):bool{
+        $duplicate= DB::getConn()->prepare("SELECT count(*) AS nb FROM projets WHERE ordre=:ordre AND id!=:id");
+        $duplicate->bindValue(':id', $projetId, PDO::PARAM_INT);
+        $duplicate->bindValue(':ordre', $ordre, PDO::PARAM_INT);
+        $duplicate->execute();
+        $nbLigne=(int)$duplicate->fetch(PDO::FETCH_COLUMN);
+        if ($nbLigne===0){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }    
 
 
 

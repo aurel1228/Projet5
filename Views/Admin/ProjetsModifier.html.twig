@@ -29,8 +29,8 @@
             <div id="error">{{ message|default("") }}</div>
          </form>
       </div>
-      {#{% if user.id >0 %}
-         <a href="/Admin/Delete?id={{user.id}}">suppression</a>
-      {% endif %} #}
+      {% if projet.id >0 %}
+         <a href="/Admin/ProjetsDelete?id={{projet.id}}">suppression</a>
+      {% endif %}
          <a href="/Admin/Projets">Annuler/Retour page précédente</a>
    </body>
