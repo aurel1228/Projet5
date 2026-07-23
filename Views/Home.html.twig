@@ -20,7 +20,7 @@
 				<div class="list-projet">
 					<a href="#">Voir les sites : 
 
-               {% for projet in Projets %}
+               {% for projet in Projets|sort((a, b) => a.ordre <=> b.ordre) %}
                   <a href="{{ projet.lien }}"><img src="/images/icon/{{ projet.icon }}" alt="image du projet{{ projet.ordre}}"></a>
                {% endfor %} 
                
