@@ -3,6 +3,10 @@
    <body>
       {% include "/_logoutButton.html.twig" %}
       {% include "/_info.html.twig" %}
+      {% if SESSION['role'] == "admin" %}
+         <a href="/Admin/Users" id="backadmin">page admin</a>
+      {% endif %}
+    
       <div class="container">
 			<nav>
 				<ul>
@@ -45,10 +49,7 @@
          {% endif %}
          {{ message|default("") }}
          {{ SESSION['message']|default("") }}
-         {% if SESSION['role'] is not empty %}
-            <a href="/Admin/Users" id="backadmin">page admin</a>
-         {% endif %}
-    
+
          <section class="meteo-container">
             <form id="meteoform" method="post">
 
