@@ -5,8 +5,10 @@
 {% endif %}               
 {% include "/Admin/_headAdmin.html.twig"  %}
    <body>
-      {% include "/_logoutButton.html.twig" %}
-      {% include "/_info.html.twig" %}
+      <div id="utilisateur">
+         {% include "/_info.html.twig" %}
+         {% include "/_logoutButton.html.twig" %}
+      </div>      
       <h1>ID UTILISATEUR :{{ user.id }}</h1>
       <div class="login">
          <h2>modification</h2>

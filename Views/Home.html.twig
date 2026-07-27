@@ -1,46 +1,55 @@
 {% set titre = "projet5 Accueil" %}
 {% include "/_head.html.twig"  %}
    <body>
-      {% include "/_logoutButton.html.twig" %}
-      {% include "/_info.html.twig" %}
-      {% if SESSION['role'] == "admin" %}
-         <a href="/Admin/Users" id="backadmin">page admin</a>
+      {% if SESSION['role'] is not empty %}
+         <div id="utilisateur">
+            {% include "/_info.html.twig" %}
+            {% if SESSION['role'] == "admin" %}
+               <a href="/Admin/Users" id="backadmin">page admin</a>
+            {% endif %}
+            {% include "/_logoutButton.html.twig" %}
+         </div>
       {% endif %}
-    
+      
       <div class="container">
 			<nav>
 				<ul>
-					<li><a href="#">Accueil</a></li>
-					<li><a href="">Portfolio</a></li>
-               <li><a href="">Connexion</a></li>
-					<li><a href="">Météo</a></li>
+					<li><a href="#container">Accueil</a></li>
+					<li><a href="#list-projet">Portfolio</a></li>
+               {% if SESSION['role'] is empty %}
+                  <li><a href="#connexion">Connexion</a></li>
+               {% endif %}
+					<li><a href="#meteo">Météo</a></li>
 				</ul>
 			</nav>
 
          <section class="site-container">
-				<p>Bienvenu sur mon portfolio Projet5</p>
-				<h1>voici les projets que j'ai réalisé</h1>
+				<p>Bienvenu sur mon portfolio Projet 5</p>
+				<h1>Voici les projets que j'ai réalisé</h1>
 
 				<div class="list-projet">
-					<a href="#">Voir les sites : 
+                Cliquez pour voir les différents projets ci-dessous: 
+               <div class="column">
 
-               {% for projet in Projets|sort((a, b) => a.ordre <=> b.ordre) %}
-                  <a href="{{ projet.lien }}"><img src="/images/icon/{{ projet.icon }}" alt="image du projet{{ projet.ordre}}"></a>
-               {% endfor %} 
-               
-               <h4>sites réalisés dans le cadre d'un parcours Openclassrooms</h4>
-
-				</div>
+                  {% for projet in Projets|sort((a, b) => a.ordre <=> b.ordre) %}
+                     <a href="{{ projet.lien }}"><img id="imgprojet" src="/images/icon/{{ projet.icon }}" alt="image du projet{{ projet.ordre}}"></a>
+                  {% endfor %} 
+                  
+               </div>          
+				</div>  
+            sites réalisés dans le cadre d'un parcours Openclassrooms
 			</section>
+
          {% if SESSION['pseudo'] is empty %}
+            
             <section class="login-container">
                <form id="connexion" method="post">
                   <h1 id="login-title">Formulaire de connexion</h1>
 
-                  <label id="pseudo" for="pseudo">Nom utilisateur</label>
+                  <label id="pseudotext" for="pseudo">Nom utilisateur</label>
                   <input type="text" id="pseudo" name="pseudo" placeholder="pseudo" required >
 
-                  <label id="password" for="password">mot de passe</label>
+                  <label id="passwordtext" for="password">mot de passe</label>
                   <input type="password" id="password" name="password" placeholder="mot de passe" required>
 
                   <button id="login-button" type="submit" name="connexion" value="1">connexion</button>
@@ -53,7 +62,7 @@
          <section class="meteo-container">
             <form id="meteoform" method="post">
 
-               <label for="meteo">Voir météo de la ville ci-dessous</label>
+               <label id="meteotext" for="meteo">Voir météo de la ville ci-dessous</label>
                <input type="text" id="meteo" name="cityName" placeholder="Entrez nom de la ville" required>
 
                <button type="button" id="search-btn" name="CheckCity">Validez</button>
@@ -61,7 +70,7 @@
             </form>
             
             
-               <div id="apimeteo"></div>
+            <div id="apimeteo"></div>
             <div id="reponse">   
                <div id="temp"></div><div id="ressenti"></div>
                <div id="speed"></div> 

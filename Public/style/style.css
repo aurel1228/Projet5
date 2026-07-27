@@ -4,25 +4,52 @@ body {
   align-items: center;
   min-height: 100vh;
 	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1));
-  background-image: url("/./images/background/home5.jpg");
+  background-image: url("/./images/background/home1.jpg");
   background-size: cover;
   background-position: center;
 }
 
 .container {
 	position: flex;
-	height: 100vh;
-	width: 100%;
 	background-size: cover;
 	background-position: center;
 	padding: 0 8%;
 }
 
+
+/* info utilisateur */
+#utilisateur {
+  display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 5px 0;
+  position: absolute;
+  width: 25%;
+  margin-left: 1%;
+  background-color: hsla(0, 0%, 100%, .01);
+  border: 2px solid hsla(0, 0%, 100%, .7);
+  border-radius: 1rem;
+  backdrop-filter: blur(16px);
+  top:0%;
+  left:0%;
+}
+
+
+/* menu de la page d'accueil */
 nav {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	padding: 5px 0;
+  position: fixed;
+  width: 25%;
+  margin-left: 70%;
+  background-color: hsla(0, 0%, 100%, .01);
+  border: 2px solid hsla(0, 0%, 100%, .7);
+  border-radius: 1rem;
+  backdrop-filter: blur(16px);
+  top:0%;
+  left:0%;
 }
 
 nav ul {
@@ -32,16 +59,6 @@ nav ul {
 	padding-right: 40px;
 	text-align: right;
 	list-style-type: none;
-}
-
-table {
-  border-collapse: collapse;
-  margin:auto;
-}
-
-th, td {
-  border: 1px solid black;
-  padding: 10px;
 }
 
 ul{
@@ -74,6 +91,60 @@ ul li a::after {
 
 ul li a:hover::after {
 	width: 38%;
+}
+
+
+/* tableau */
+
+table {
+  width: 50%;
+  margin-bottom: 10%;
+  border-collapse: collapse; 
+  font-family: sans-serif;
+  background: none;
+  padding-block: 1rem;
+  position:absolute;
+  
+}
+
+th, td {
+  text-align: left;       
+  border: 1px solid black;
+  padding: 10px;
+}
+
+#titre h1 {
+  color: black;
+  position: absolute;
+  top: 50px;
+}
+
+#userbutton{
+  position: absolute;
+  bottom: 230px;
+  justify-content: space-between;
+	align-items: center;
+	padding: 5px 0;
+  color: white;
+}
+
+#userbutton button{
+  background-color: hsla(0, 0%, 100%, .01);
+  border: 2px solid hsla(0, 0%, 100%, .7);
+  border-radius: 1rem;
+  backdrop-filter: blur(16px);
+}
+
+#userlink{
+  position: absolute;
+  bottom: 150px;
+  font-size: 20px;
+}
+
+#projetlink{
+  position: absolute;
+  bottom: 200px;
+  font-size: 20px;
 }
 
 .site-container {
@@ -149,49 +220,42 @@ ul li a:hover::after {
 
 
 h1 {
-    text-align: center;
-    color: #fff;
+  text-align: center;
+  color: #fff;
 }
 
 h2 {
-    text-align: center;
-    margin-bottom: 40px;
+  text-align: center;
+  margin-bottom: 40px;
 }
 
 label{
-    color: #888;
-    font-size: 18px;
-    padding: 10px;
-}
-
-.pagination {
-    display: flex;
-	  justify-content: center;
-	  align-items: center;
-    margin: 10px auto;
+  color: #888;
+  font-size: 18px;
+  padding: 10px;
 }
 
 button {
-    float: right;
-    background: #555;
-    padding: 10px 15px;
-    color: #fff;
-    border-radius: 5px;
-    margin-right: 10px;
-    border: none;
+  float: right;
+  background: #555;
+  padding: 10px 15px;
+  color: #fff;
+  border-radius: 5px;
+  margin-right: 10px;
+  border: none;
 }
 
 button:hover {
-    opacity: .7;
+  opacity: .7;
 }
 
 .error{
-    background: #F2DEDE;
-    color: #A94442;
-    padding: 10px;
-    width: 95%;
-    border-radius: 5px;
-    margin: 20px auto;
+  background: #F2DEDE;
+  color: #A94442;
+  padding: 10px;
+  width: 95%;
+  border-radius: 5px;
+  margin: 20px auto;
 }
 
 a {
@@ -201,28 +265,29 @@ a {
 }
 
 a:hover{
-    opacity: .7;
+  opacity: .7;
 }
 
 
+/* les formulaires du site */
 form {
-    display: flex;
-    flex-direction: column;
-    width: 500px;
-    border: 2px solid #ccc;
-    padding: 45px;
-    background: #fff;
-    color: black;
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  border: 2px solid #ccc;
+  padding: 45px;
+  background: #fff;
+  color: black;
     
 }
 
 input {
-    display: block;
-    border: 2px solid #ccc;
-    width: 300px;
-    padding: 10px;
-    margin: 10px auto;
-    border-radius: 5px;
+  display: block;
+  border: 2px solid #ccc;
+  width: 300px;
+  padding: 10px;
+  margin: 10px auto;
+  border-radius: 5px;
 }
 
 form#connexion{
@@ -254,13 +319,19 @@ form#connexion{
   border: 2px solid hsla(0, 0%, 100%, .7);
 }
 
-label#pseudo {
+label#pseudotext {
   background: none;
   color: white;
   padding-block: 1rem;
 }
 
-label#password {
+label#passwordtext {
+  background: none;
+  color: white;
+  padding-block: 1rem;
+}
+
+label#meteotext {
   background: none;
   color: white;
   padding-block: 1rem;
@@ -300,6 +371,18 @@ form#meteoform{
 
 
 
+.column {
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  
+}
+
+#imgprojet{
+    height: 70%; 
+    width: 90%; 
+    border: 2px solid;
+}
 
 
 
@@ -310,7 +393,8 @@ form#meteoform{
 
 
 
-/* Icones */
+
+/* Icones de la météo avec animation */
 .icon {
     position: relative;
     display: inline-block;

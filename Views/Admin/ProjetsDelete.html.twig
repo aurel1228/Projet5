@@ -1,7 +1,10 @@
 {% set titre = "page de suppression des projets" %}
 {% include "/Admin/_headAdmin.html.twig"  %}
    <body>
-      {% include "/_logoutButton.html.twig" %}
+      <div id="utilisateur">
+         {% include "/_info.html.twig" %}
+         {% include "/_logoutButton.html.twig" %}
+      </div>      
       <h1>Information du projet</h1>
 
       <form method="post">
