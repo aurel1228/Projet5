@@ -24,7 +24,7 @@
 			</nav>
 
          <section class="site-container">
-				<p>Bienvenu sur mon portfolio Projet 5</p>
+				<p>Bienvenue sur mon portfolio Projet 5</p>
 				<h1>Voici les projets que j'ai réalisé</h1>
 
 				<div class="list-projet">
@@ -32,7 +32,7 @@
                <div class="column">
 
                   {% for projet in Projets|sort((a, b) => a.ordre <=> b.ordre) %}
-                     <a href="{{ projet.lien }}"><img id="imgprojet" src="/images/icon/{{ projet.icon }}" alt="image du projet{{ projet.ordre}}"></a>
+                     <a href="{{ projet.lien }}" target="_blank"><img id="imgprojet" src="/images/icon/{{ projet.icon }}" alt="image du projet{{ projet.ordre}}"></a>
                   {% endfor %} 
                   
                </div>          

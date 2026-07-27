@@ -107,6 +107,11 @@ table {
   
 }
 
+table img{
+  width: 50px; 
+  height: 50px;
+}
+
 th, td {
   text-align: left;       
   border: 1px solid black;
@@ -139,13 +144,23 @@ th, td {
   position: absolute;
   bottom: 150px;
   font-size: 20px;
+  color: white;
 }
+
+#userlink a{
+  color: white;
+}  
 
 #projetlink{
   position: absolute;
   bottom: 200px;
   font-size: 20px;
+  color: white;
 }
+
+#projetlink a{
+  color: white;
+}  
 
 .site-container {
 	position: relative;
@@ -290,6 +305,20 @@ input {
   border-radius: 5px;
 }
 
+form{
+  position: flex;
+  margin-inline: 1.5rem;
+  background-color: hsla(0, 0%, 100%, .01);
+  border: 2px solid hsla(0, 0%, 100%, .7);
+  padding: 2.5rem 1rem;
+  border-radius: 1rem;
+  backdrop-filter: blur(16px);
+}
+
+form label{
+  color: black;
+}
+
 form#connexion{
   position: flex;
   margin-inline: 1.5rem;
@@ -299,6 +328,10 @@ form#connexion{
   color: var(--white-color);
   border-radius: 1rem;
   backdrop-filter: blur(16px);
+}
+
+.login h1{
+  color: black;
 }
 
 #login-title {
@@ -367,10 +400,6 @@ form#meteoform{
   
 }
 
-
-
-
-
 .column {
   display: flex;
   justify-content: center;
@@ -383,11 +412,6 @@ form#meteoform{
     width: 90%; 
     border: 2px solid;
 }
-
-
-
-
-
 
 
 

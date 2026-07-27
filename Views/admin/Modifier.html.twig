@@ -8,9 +8,10 @@
       <div id="utilisateur">
          {% include "/_info.html.twig" %}
          {% include "/_logoutButton.html.twig" %}
-      </div>      
-      <h1>ID UTILISATEUR :{{ user.id }}</h1>
+      </div>    
+
       <div class="login">
+         <h1>ID UTILISATEUR :{{ user.id }}</h1>  
          <h2>modification</h2>
          <form method="post" id="form" enctype="multipart/form-data">
             <input type="hidden" name="id" value="{{ user.id }}">
