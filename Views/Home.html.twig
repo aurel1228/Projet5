@@ -32,7 +32,7 @@
                <div class="column">
 
                   {% for projet in Projets|sort((a, b) => a.ordre <=> b.ordre) %}
-                     <a href="{{ projet.lien }}" target="_blank"><img id="imgprojet" src="/images/icon/{{ projet.icon }}" alt="image du projet{{ projet.ordre}}"></a>
+                     <a href="{{ projet.lien }}" target="_blank"><img class="imgprojet" src="/images/icon/{{ projet.icon }}" alt="image du projet{{ projet.ordre}}"></a>
                   {% endfor %} 
                   
                </div>          

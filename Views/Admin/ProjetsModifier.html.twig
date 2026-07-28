@@ -22,7 +22,7 @@
             <label for="icon">Ajouter une icone (recommandé pour 400*400)</label>
             <input type="file" id="icon" name="icon" accept="image/*">
             {% if projet.icon is not null %} 
-            <img src="/images/icon/{{ projet.icon }}" alt="image de l'icone" style="width: 50px; height: 50px;">
+            <img src="/images/icon/{{ projet.icon }}" alt="image de l'icone">
             <a href="?delete_icon=1&id={{projet.id}}">supprimer l'icone</a>
             {% endif %}
    

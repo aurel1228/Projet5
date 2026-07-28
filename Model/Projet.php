@@ -66,7 +66,7 @@ class Projet{
         }
     }    
 
-    public static function deleteProjet(string $id):bool{
+    public static function deleteProjet(int $id):bool{
         $icon=static::getOne($id)['icon'];
         $delete = DB::getConn()->prepare("DELETE FROM projets WHERE id=:id");
         $delete->bindValue("id", $id, PDO::PARAM_INT);

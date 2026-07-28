@@ -36,7 +36,7 @@
             <label for="avatar">Ajouter un avatar(recommandé pour 400*400)</label>
             <input type="file" id="avatar" name="avatar" accept="image/*">
             {% if user.avatar is not null %} 
-            <img src="/images/avatar/{{ user.avatar }}" alt="image de l'avatar" style="width: 50px; height: 50px;">
+            <img src="/images/avatar/{{ user.avatar }}" alt="image de l'avatar">
             <a href="?delete_avatar=1&id={{user.id}}">supprimer avatar</a>
             {% endif %}
    
@@ -50,9 +50,9 @@
          </form>
       </div>
       {% if user.id >0 %}
-         <a href="/Admin/Delete?id={{user.id}}">suppression</a>
+        <h2><a href="/Admin/Delete?id={{user.id}}">Suppression</a></h2>
       {% endif %}
-         <a href="/Admin/Users">Annuler/Retour page précédente</a>
+         <h2><a href="/Admin/Users">Annuler/Retour page précédente</a></h2>
          <script src="/js/Admin/Modifier.js"></script>
    </body>
 </html>

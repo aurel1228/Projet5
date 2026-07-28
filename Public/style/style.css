@@ -285,16 +285,6 @@ a:hover{
 
 
 /* les formulaires du site */
-form {
-  display: flex;
-  flex-direction: column;
-  width: 500px;
-  border: 2px solid #ccc;
-  padding: 45px;
-  background: #fff;
-  color: black;
-    
-}
 
 input {
   display: block;
@@ -313,10 +303,30 @@ form{
   padding: 2.5rem 1rem;
   border-radius: 1rem;
   backdrop-filter: blur(16px);
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  border: 2px solid #ccc;
+  padding: 45px;
+  background: #fff;
+  color: black;
 }
 
 form label{
   color: black;
+}
+
+form#form{
+  position: flex;
+  margin-inline: 1.5rem;
+  background-color: hsla(0, 0%, 100%, .01);
+  border: 2px solid hsla(0, 0%, 100%, .7);
+  padding: 2.5rem 1rem;
+  color: var(--white-color);
+  border-radius: 1rem;
+  backdrop-filter: blur(16px);
+  margin-bottom: 100px;
+  margin-left: 250px;
 }
 
 form#connexion{
@@ -328,6 +338,49 @@ form#connexion{
   color: var(--white-color);
   border-radius: 1rem;
   backdrop-filter: blur(16px);
+
+}
+
+form#formdelete{
+  position: flex;
+  margin-inline: 1.5rem;
+  background-color: hsla(0, 0%, 100%, .01);
+  border: 2px solid hsla(0, 0%, 100%, .7);
+  padding: 2.5rem 1rem;
+  color: var(--white-color);
+  border-radius: 1rem;
+  backdrop-filter: blur(16px);
+  margin-bottom: 100px;
+}
+
+form img{
+  margin-left: 200px;
+  width: 100px; 
+  height: 100px;
+}
+
+form button{
+  width: 100%;
+  padding: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 4rem;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: hsla(0, 0%, 100%, .01);
+  border: 2px solid hsla(0, 0%, 100%, .7);
+}
+
+form#login{
+  position: flex;
+  margin-inline: 1.5rem;
+  background-color: hsla(0, 0%, 100%, .01);
+  border: 2px solid hsla(0, 0%, 100%, .7);
+  padding: 2.5rem 1rem;
+  color: var(--white-color);
+  border-radius: 1rem;
+  backdrop-filter: blur(16px);
+
 }
 
 .login h1{
@@ -407,9 +460,9 @@ form#meteoform{
   
 }
 
-#imgprojet{
+.imgprojet {
     height: 70%; 
-    width: 90%; 
+    width: 80%; 
     border: 2px solid;
 }
 
@@ -418,7 +471,7 @@ form#meteoform{
 
 
 
-/* Icones de la météo avec animation */
+/* Icone de la météo avec animation */
 .icon {
     position: relative;
     display: inline-block;
