@@ -40,9 +40,3 @@ abstract class AbstractUserController implements ControllerInterface{
         return RoleEnum::ConnectedOrNot;
     }
 }
-
-
-
-
-
-

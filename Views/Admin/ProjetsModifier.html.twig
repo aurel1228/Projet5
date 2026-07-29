@@ -19,7 +19,7 @@
             <label for="lien">lien du projet : {{ projet.lien }}</label>
             <input type="text" id="lien" name="lien" value="{{ projet.lien }}" required>
 
-            <label for="icon">Ajouter une icone (recommandé pour 400*400)</label>
+            <label for="icon">Ajouter une icône (recommandé pour 400*400)</label>
             <input type="file" id="icon" name="icon" accept="image/*">
             {% if projet.icon is not null %} 
             <img src="/images/icon/{{ projet.icon }}" alt="image de l'icone">
@@ -33,7 +33,7 @@
          </form>
       </div>
       {% if projet.id >0 %}
-         <a href="/Admin/ProjetsDelete?id={{projet.id}}">suppression</a>
+         <h2><a href="/Admin/ProjetsDelete?id={{projet.id}}">suppression</a></h2>
       {% endif %}
-         <a href="/Admin/Projets">Annuler/Retour page précédente</a>
+        <h2><a href="/Admin/Projets">Annuler/Retour page précédente</a></h2>
    </body>

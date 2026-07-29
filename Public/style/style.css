@@ -162,19 +162,19 @@ th, td {
   color: white;
 }  
 
-.site-container {
+.home-container {
 	position: relative;
   justify-content: center;
 	bottom: 10%;
 	color: #fff;
 }
 
-.site-container p {
+.home-container p {
 	font-size: 50px;
 	font-weight: bold;
 }
 
-.site-container h1 {
+.home-container h1 {
 	font-size: 120px;
   color: white;
 	line-height: 120px;
@@ -183,12 +183,12 @@ th, td {
 	background-position: 0 0;
 }
 
-.site-container h3 {
+.home-container h3 {
 	font-size: 40px;
 	font-weight: 500;
 }
 
-.site-container{
+.home-container{
 	display: relative;
 	justify-content: center;
 }
@@ -380,7 +380,6 @@ form#login{
   color: var(--white-color);
   border-radius: 1rem;
   backdrop-filter: blur(16px);
-
 }
 
 .login h1{
@@ -465,9 +464,6 @@ form#meteoform{
     width: 80%; 
     border: 2px solid;
 }
-
-
-
 
 
 
