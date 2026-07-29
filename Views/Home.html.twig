@@ -3,7 +3,7 @@
    <body>
       {% if SESSION['role'] is not empty %}
          <div id="utilisateur">
-            {% include "/_info.html.twig" %}
+            {% include "/_Info.html.twig" %}
             {% if SESSION['role'] == "admin" %}
                <a href="/Admin/Users" id="backadmin">page admin</a>
             {% endif %}
