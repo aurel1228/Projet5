@@ -8,7 +8,11 @@ mb_internal_encoding("UTF-8");
 session_start();
 
 // construction du nom de la classe du controller
-$request = str_replace("/","\\",$_GET['action']);
+$request= $_GET['action'];
+if(str_starts_with($request, "/")){
+    $request=substr($request,1);
+}
+$request = str_replace("/","\\",$request);
 $class="Projet5\\Controllers\\$request";
 if(!class_exists($class)){ //invoque la classe erreur s'il ne trouve pas de controller
     $class=Error::class;
