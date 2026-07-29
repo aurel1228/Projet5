@@ -1,20 +1,20 @@
-{% set titre = "page de suppression des projets" %}
+{% set titre = "page de suppression" %}
 {% include "/Admin/_headAdmin.html.twig"  %}
    <body>
       <div id="utilisateur">
          {% include "/_Info.html.twig" %}
          {% include "/_logoutButton.html.twig" %}
       </div>      
-      <h1>Information du projet</h1>
+      <h1>Information utilisateur</h1>
 
       <form method="post" id="formdelete">
-         <label>ID du projet: {{ projet.id }}<br></label>
-         <label>lien du projet : {{ projet.lien }}<br></label>
-         <label>numéro du projet : {{ projet.ordre }}<br></label>
+         <label>ID utilisateur: {{ user.id }}<br></label>
+         <label>pseudo utilisateur : {{ user.pseudo }}<br></label>
+         <label>rôle utilisateur : {{ user.role }}<br></label>
          <button type="submit" name="delete" value="1">Supprimer</button>
       </form >
 
-      <a href="/Admin/Projets">Annuler</a>
+      <a href="/Admin/Users">Annuler</a>
       
       {{ message|default("") }}
    </body>
