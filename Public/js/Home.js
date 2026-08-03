@@ -19,7 +19,6 @@ document.getElementById("search-btn").addEventListener("click", (event) => {
 
 function fetchWeather(city) {
   const apiURL = `/ApiHome?city=${city}`;
-
   fetch(apiURL)
     .then(response => {
       if (!response.ok) {

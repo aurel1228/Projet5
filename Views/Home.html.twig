@@ -14,7 +14,7 @@
       <div class="container">
 			<nav>
 				<ul>
-					<li><a href="#container">Accueil</a></li>
+					<li><a href="#">Accueil</a></li>
 					<li><a href="#list-projet">Portfolio</a></li>
                {% if SESSION['role'] is empty %}
                   <li><a href="#connexion">Connexion</a></li>
@@ -53,11 +53,14 @@
                   <input type="password" id="password" name="password" placeholder="mot de passe" required>
 
                   <button id="login-button" type="submit" name="connexion" value="1">connexion</button>
+                  <div id="message">
+                     {{ message|default("") }}
+                     {{ SESSION['message']|default("") }}
+                  </div>
                </form>
             </section>
          {% endif %}
-         {{ message|default("") }}
-         {{ SESSION['message']|default("") }}
+
 
          <section class="meteo-container">
             <form id="meteoform" method="post">

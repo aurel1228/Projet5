@@ -21,6 +21,7 @@
          </thead>
          <tbody id="list">
             {% include "/Admin/_ListUser.html.twig" %}
+            <div id="validation">{{ SESSION['message']|default("") }}</div>
          </tbody>
       </table>
 
@@ -36,7 +37,7 @@
          <div id="error"></div>  
       </div>
 
-      {{ SESSION['message']|default("") }}
+      
 
 
       <script src="/js/Admin/Users.js"></script>

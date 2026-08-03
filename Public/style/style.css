@@ -2,7 +2,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
 	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1));
   background-image: url("/./images/background/home1.jpg");
   background-size: cover;
@@ -98,12 +97,10 @@ ul li a:hover::after {
 
 table {
   width: 50%;
-  margin-bottom: 10%;
   border-collapse: collapse; 
   font-family: sans-serif;
   background: none;
   padding-block: 1rem;
-  position:absolute;
   
 }
 
@@ -111,6 +108,7 @@ table img{
   width: 50px; 
   height: 50px;
 }
+
 
 th, td {
   text-align: left;       
@@ -121,7 +119,8 @@ th, td {
 #titre h1 {
   color: black;
   position: absolute;
-  top: 50px;
+  top:0;
+  margin-left: 300px;
 }
 
 #userbutton{
@@ -163,10 +162,11 @@ th, td {
 }  
 
 .home-container {
-	position: relative;
   justify-content: center;
 	bottom: 10%;
 	color: #fff;
+  display: relative;
+	justify-content: center;
 }
 
 .home-container p {
@@ -186,11 +186,6 @@ th, td {
 .home-container h3 {
 	font-size: 40px;
 	font-weight: 500;
-}
-
-.home-container{
-	display: relative;
-	justify-content: center;
 }
 
 .login-container {
@@ -239,10 +234,19 @@ h1 {
   color: #fff;
 }
 
+.login h1{
+  text-align: right;
+}
+
 h2 {
   text-align: center;
   margin-bottom: 40px;
 }
+
+.login h2{
+  text-align: center;
+}
+
 
 label{
   color: #888;
@@ -325,8 +329,8 @@ form#form{
   color: var(--white-color);
   border-radius: 1rem;
   backdrop-filter: blur(16px);
-  margin-bottom: 100px;
-  margin-left: 250px;
+  margin-left: 50%;
+  margin-top: 30px;
 }
 
 form#connexion{
@@ -350,7 +354,12 @@ form#formdelete{
   color: var(--white-color);
   border-radius: 1rem;
   backdrop-filter: blur(16px);
-  margin-bottom: 100px;
+  margin-top: 250px;
+}
+
+form#formdelete a{
+  margin-top: 50px;
+  font-size: 22px;
 }
 
 form img{
@@ -460,11 +469,38 @@ form#meteoform{
 }
 
 .imgprojet {
-    height: 70%; 
-    width: 80%; 
-    border: 2px solid;
+  height: 70%; 
+  width: 80%; 
+  border: 2px solid;
 }
 
+
+#message {
+  width: 100px;
+  color:red;
+  margin-left: 200px;
+  font-size: 20px;
+}
+
+#error {
+  margin-left: 200px;
+  font-size: 18px;
+  font-size: 20px;
+}
+
+#validation {
+  padding:5px;
+  margin-top: 650px;
+  font-size: 22px;
+  color:red;
+  text-align: right;   
+
+}
+
+#textlink {
+  text-align: center;
+  margin-left: 250px;
+}
 
 
 /* Icone de la météo avec animation */

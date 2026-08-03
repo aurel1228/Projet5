@@ -5,17 +5,16 @@
          {% include "/_Info.html.twig" %}
          {% include "/_logoutButton.html.twig" %}
       </div>      
-      <h1>Information du projet</h1>
 
       <form method="post" id="formdelete">
+         <h1>Information du projet</h1>
          <label>ID du projet: {{ projet.id }}<br></label>
          <label>lien du projet : {{ projet.lien }}<br></label>
          <label>numéro du projet : {{ projet.ordre }}<br></label>
          <button type="submit" name="delete" value="1">Supprimer</button>
+         <a href="/Admin/Projets">Annuler</a>
       </form >
-
-      <a href="/Admin/Projets">Annuler</a>
-      
+  
       {{ message|default("") }}
    </body>
 </html>

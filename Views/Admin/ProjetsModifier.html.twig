@@ -10,10 +10,11 @@
          {% include "/_logoutButton.html.twig" %}
       </div>      
 
-      <h1>Numéro du projet :{{ projet.ordre }}</h1>
       <div class="login">
-         <h2>modification</h2>
+         <h1>Numéro du projet :{{ projet.ordre }}</h1>
+         
          <form method="post" id="form" enctype="multipart/form-data">
+            <h2>modification</h2>
             <input type="hidden" name="id" value="{{ projet.id }}">
 
             <label for="lien">lien du projet : {{ projet.lien }}</label>
@@ -32,8 +33,10 @@
             <div id="error">{{ message|default("") }}</div>
          </form>
       </div>
-      {% if projet.id >0 %}
-         <h2><a href="/Admin/ProjetsDelete?id={{projet.id}}">suppression</a></h2>
-      {% endif %}
-        <h2><a href="/Admin/Projets">Annuler/Retour page précédente</a></h2>
+      <div id="textlink">
+         {% if projet.id >0 %}
+            <h2><a href="/Admin/ProjetsDelete?id={{projet.id}}">suppression</a></h2>
+         {% endif %}
+         <h2><a href="/Admin/Projets">Annuler/Retour page précédente</a></h2>
+      </div>  
    </body>

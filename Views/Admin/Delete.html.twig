@@ -5,16 +5,18 @@
          {% include "/_Info.html.twig" %}
          {% include "/_logoutButton.html.twig" %}
       </div>      
-      <h1>Information utilisateur</h1>
+      
 
       <form method="post" id="formdelete">
+         <h1>Information utilisateur</h1>
          <label>ID utilisateur: {{ user.id }}<br></label>
          <label>pseudo utilisateur : {{ user.pseudo }}<br></label>
          <label>rôle utilisateur : {{ user.role }}<br></label>
          <button type="submit" name="delete" value="1">Supprimer</button>
+         <a href="/Admin/Users">Annuler</a>
       </form >
 
-      <a href="/Admin/Users">Annuler</a>
+      
       
       {{ message|default("") }}
    </body>
