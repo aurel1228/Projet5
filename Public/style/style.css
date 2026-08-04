@@ -96,12 +96,13 @@ ul li a:hover::after {
 /* tableau */
 
 table {
+  position:absolute;
   width: 50%;
   border-collapse: collapse; 
   font-family: sans-serif;
   background: none;
   padding-block: 1rem;
-  
+  color:white;
 }
 
 table img{
@@ -109,6 +110,9 @@ table img{
   height: 50px;
 }
 
+table a{
+  color:white;
+}
 
 th, td {
   text-align: left;       
@@ -117,17 +121,15 @@ th, td {
 }
 
 #titre h1 {
-  color: black;
+  color: white;
   position: absolute;
   top:0;
-  margin-left: 300px;
+  
 }
 
 #userbutton{
   position: absolute;
-  bottom: 230px;
-  justify-content: space-between;
-	align-items: center;
+  bottom: 200px;
 	padding: 5px 0;
   color: white;
 }
@@ -492,8 +494,7 @@ form#meteoform{
   padding:5px;
   margin-top: 650px;
   font-size: 22px;
-  color:red;
-  text-align: right;   
+  color:red;   
 
 }
 

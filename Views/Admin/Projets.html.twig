@@ -30,10 +30,10 @@
                 <td>{% if projet.icon is not null %}<img src="/images/icon/{{ projet.icon }}" alt="image de l'icon">{% endif %}</td> 
                 </tr> 
             {% endfor %} 
-            <div id="validation">{{ SESSION['message']|default("") }}</div>
          </tbody>
       </table>
 
+      <div id="validation">{{ SESSION['message']|default("") }}</div>
       <div id="projetlink"><a href="/Admin/ProjetsModifier?id=0">ajouter un nouveau projet</a></div>
 
    </body>

@@ -21,10 +21,10 @@
          </thead>
          <tbody id="list">
             {% include "/Admin/_ListUser.html.twig" %}
-            <div id="validation">{{ SESSION['message']|default("") }}</div>
          </tbody>
       </table>
-
+       
+      <div id="validation">{{ SESSION['message']|default("") }}</div>
       <div id="userbutton">
          <button id="next">suivant</button>
          <button id="previous">précédent</button>
