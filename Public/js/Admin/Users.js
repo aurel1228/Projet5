@@ -30,7 +30,6 @@ function changePage(){
             if (!response.ok) {
                 throw new Error("list inconnu");
             }
-            console.log(response);
             return response.text();
         })
             .then(data => displayList(data))
