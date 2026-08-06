@@ -192,7 +192,6 @@ button:hover {
 	color: #fff;
   display: relative;
 	justify-content: center;
-  
 }
 
 .home-container p {
@@ -257,6 +256,7 @@ h1 {
 
 .login h1{
   text-align: right;
+  color: black;
 }
 
 h2 {
@@ -349,7 +349,6 @@ form#connexion{
   color: var(--white-color);
   border-radius: 1rem;
   backdrop-filter: blur(16px);
-
 }
 
 form#formdelete{
@@ -396,10 +395,6 @@ form#login{
   color: var(--white-color);
   border-radius: 1rem;
   backdrop-filter: blur(16px);
-}
-
-.login h1{
-  color: black;
 }
 
 #login-title {
@@ -796,7 +791,6 @@ form#meteoform{
     display:block;
     position: absolute;
     width: 0%;
-   
     left:auto;
   }
 
@@ -836,11 +830,8 @@ form#meteoform{
 
 }  
 
-@media (max-width: 768px) {
 
-  nav{
-    display: none;
-  }
+@media (max-width: 768px) {
 
   #userbutton{
     position:absolute;
@@ -886,5 +877,88 @@ form#meteoform{
     margin-left: 10%;
     margin-top: 30px;
   }  
+
+  .home-container p{
+    text-align: center;
+  }
+
+  .home-container h1{
+    text-align: center;
+    font-size: 3vh;
+  }
+
+  form{
+    width: 250px;
+  }
+
+  input {
+    width: 200px;
+  }
+
+  #apimeteo{
+    position: relative;
+    top:300px;
+  }
+
+  #reponse{
+    position: relative;
+    top:300px;
+  }
+
+  form#meteoform{
+    position: absolute;
+  }
+
+  #titre h1{
+    font-size: 20px;
+    margin-top: 80px;
+  }
+
+   th, td{
+    padding: 5px;
+  }
+
+  table#tableauProjets td{
+    padding: 0.5px;
+  }
+
+   table#tableauProjets th{
+    padding: 0.5px;
+  }
+
+  #titreprojet h1{
+    top:50px;
+  }
+
+  .login h1{
+    margin-left: 0px;
+    margin-top: 50px;
+  }
+
+  #textlink{
+    top:800px;
+    margin-right: 100px;
+  }
+
+  nav {
+    left:0;
+	  display: flex;
+	  padding: 0;
+    margin-left: 0;
+    top:0%;
+  } 
+
+  nav ul {
+	  padding-right: 40px;
+  }
+
+  ul li {
+    margin-right: 5px;
+  }
+
+  ul li a {
+    padding: 5px 10px;
+  }
+
 
 }
